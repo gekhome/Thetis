@@ -1,0 +1,183 @@
+﻿<UserControl
+  x:Class="Thetis.Controls.MessagePopup" Name="msgControl"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  mc:Ignorable="d" 
+  Width="500" Height="300"   
+  xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Royale"
+   xmlns:local="clr-namespace:Thetis.Controls" >
+	<UserControl.Resources>
+		<Style x:Key="ButtonFocusVisual">
+			<Setter Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Rectangle SnapsToDevicePixels="true" Margin="3" Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="ButtonNormalBackgroundFill" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FFE3EBF3" Offset="0.5"/>
+			<GradientStop Color="#FFD0DCEB" Offset="0.5"/>
+			<GradientStop Color="#FFA6B8CF" Offset="1"/>
+		</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonBorder" Color="#FF2B4F82"/>
+		<Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackgroundFill}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonBorder}"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Microsoft_Windows_Themes:ButtonChrome SnapsToDevicePixels="true" x:Name="Chrome" BorderBrush="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" RenderDefaulted="{TemplateBinding IsDefaulted}" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" Width="20" Height="20">
+							<TextBlock Text="X" TextWrapping="Wrap" x:Name="X" FontFamily="Trebuchet MS" Margin="3,0,0,0"/>
+						</Microsoft_Windows_Themes:ButtonChrome>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsKeyboardFocused" Value="true">
+								<Setter Property="RenderDefaulted" TargetName="Chrome" Value="true"/>
+							</Trigger>
+							<Trigger Property="ToggleButton.IsChecked" Value="true">
+								<Setter Property="RenderPressed" TargetName="Chrome" Value="true"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="closeBUtton" BasedOn="{x:Null}" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Grid>
+							<Rectangle
+								Opacity="1"
+								RadiusX="2"
+								RadiusY="2"
+								Stroke="#ffffff"
+								StrokeThickness="1">
+								<Rectangle.Fill>
+									<LinearGradientBrush
+										StartPoint="0.6190476190476191,-0.5"
+										EndPoint="1.1128888811383928,1.426776123046875">
+										<LinearGradientBrush.GradientStops>
+											<GradientStopCollection>
+												<GradientStop
+													Color="#FF000000"
+													Offset="0" />
+												<GradientStop
+													Color="#FFffffff"
+													Offset="1" />
+											</GradientStopCollection>
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Rectangle.Fill>
+							</Rectangle>
+							<Path
+								Margin="5,5,5,5"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 808.8311767578125,278.7662353515625 C808.8311767578125,278.7662353515625 820,268 820,268 "
+								Stroke="#ffffff"
+								StrokeThickness="2" />
+							<Path
+								Margin="5,5,5,5"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 809.4155883789062,268.3636474609375 C809.4155883789062,268.3636474609375 820,279 820,279 "
+								Stroke="#ffffff"
+								StrokeThickness="2" />
+							<ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+							<Trigger Property="IsPressed" Value="True"/>
+							<Trigger Property="IsEnabled" Value="False"/>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Storyboard x:Key="startAnimation">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.5" KeySpline="0,0,0.042,0.906"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.628"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1.364" KeySpline="0,0,0.042,0.906"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.96"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="border" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.628"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1.323" KeySpline="0,0,0.042,0.906"/>
+				<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.96"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource startAnimation}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+
+    <Border BorderBrush="{x:Null}" BorderThickness="2,2,2,2" CornerRadius="8" x:Name="border" RenderTransformOrigin="0.5,0.5" Background="{x:Null}">
+  	<Border.RenderTransform>
+  		<TransformGroup>
+  			<ScaleTransform ScaleX="1" ScaleY="1"/>
+  			<SkewTransform AngleX="0" AngleY="0"/>
+  			<RotateTransform Angle="0"/>
+  			<TranslateTransform X="0" Y="0"/>
+  		</TransformGroup>
+  	</Border.RenderTransform>
+
+            <Grid>
+  		<Image HorizontalAlignment="Left" Margin="0,-15,0,0" VerticalAlignment="Top" 
+               Width="508.022" Height="329.753" 
+               Source="/Thetis;component/Shell/Images/messageBG.png"/>
+  		<TextBlock FontSize="30" FontWeight="Normal" FontFamily="Segoe UI" 
+                   Foreground="#FFF8F6F6" d:LayoutOverrides="Height" 
+                   Margin="118.552,128.048,38.218,128.049">
+            <TextBlock Name="messageText" Text="Μήνυμα Εφαρμογής"/>
+        </TextBlock>
+	  
+  		<Path
+  			Margin="73.884,0,0,91.713"
+  			HorizontalAlignment="Left"
+  			VerticalAlignment="Bottom"
+  			Height="23"
+  			Width="23"
+  			Stretch="Fill"
+  			Opacity="1"
+  			Data="M 398.5,452.5 C398.5,446.1486511230469 403.6486511230469,441 410,441 416.3513488769531,441 421.5,446.1486511230469 421.5,452.5 421.5,458.8513488769531 416.3513488769531,464 410,464 403.6486511230469,464 398.5,458.8513488769531 398.5,452.5 z"
+  			Stroke="#ffffff"
+  			StrokeThickness="5" />
+  		<Path
+  			Margin="69.462,95.611,0,119.38"
+  			HorizontalAlignment="Left"
+  			Width="30.09"
+  			Stretch="Fill"
+  			Opacity="1"
+  			Data="M 9.33685302734375,76.07574462890625 C9.33685302734375,76.07574462890625 1.980682373046875,30.483123779296875 1.980682373046875,30.483123779296875 0.6796875,22.4197998046875 -1.288970947265625,14.078399658203125 1.18182373046875,8.34185791015625 3.934722900390625,1.950897216796875 10.20306396484375,-0.285308837890625 14.979461669921875,0.02862548828125 19.71917724609375,0.3402099609375 26.03692626953125,1.721893310546875 28.848480224609375,8.34185791015625 31.350555419921875,14.233245849609375 29.47283935546875,23.773529052734375 28.4068603515625,31.555755615234375 28.4068603515625,31.555755615234375 22.301513671875,76.12738037109375 22.301513671875,76.12738037109375 22.0721435546875,77.80166625976562 21.30670166015625,79.01400756835938 20.03021240234375,79.83499145507812 18.8021240234375,80.62472534179688 17.441070556640625,81.00851440429688 15.909698486328125,81.00851440429688 14.374420166015625,81.00851440429688 12.9947509765625,80.62295532226562 11.73419189453125,79.82705688476562 10.418548583984375,78.99624633789062 9.610107421875,77.76904296875 9.33685302734375,76.07574462890625 z"
+  			Stroke="#ffffff"
+  			StrokeThickness="5" />
+  		<Button Command="Close" HorizontalAlignment="Right" Margin="0,30,38.218,0" Style="{DynamicResource closeBUtton}" VerticalAlignment="Top" Width="21" Height="20" Content=""/>
+<!-- Created with FWtoXAML Exporter v0.9.7.8 -->
+
+  	</Grid>
+    
+  </Border>
+</UserControl>
+
+

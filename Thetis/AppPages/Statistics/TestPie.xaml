@@ -1,0 +1,219 @@
+﻿<Page x:Class="Thetis.AppPages.Statistics.TestPie"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:chart="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Chart"
+	  xmlns:charting="clr-namespace:Telerik.Charting;assembly=Telerik.Windows.Controls.Chart"
+	  xmlns:chartView="clr-namespace:Telerik.Windows.Controls.ChartView;assembly=Telerik.Windows.Controls.Chart"
+	  xmlns:vm="clr-namespace:Thetis.AppPages.Statistics.ChartViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000" Loaded="Page_Loaded"
+	Title="TestPie">
+
+    <Page.DataContext>
+        <vm:WorkViewModel />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <Style x:Key="legendHeaderStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF767676" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+        </Style>
+        <Style x:Key="titleStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="#FF767676" />
+            <Setter Property="Margin" Value="0,7" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <!--<vm:OrientationToBooleanConverter x:Key="OrientationConverter" />-->
+    </Page.Resources>
+
+
+    <Grid>
+
+        <StackPanel x:Name="Layout" Orientation="Vertical">
+
+            <StackPanel Name="SelectionPanel" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <Label Content="Επιλογή προκήρυξης:" Margin="4" FontSize="12" Foreground="Black"/>
+                <telerik:RadComboBox x:Name="cboProkirixiSelection" telerik:StyleManager.Theme="Windows8" Margin="4" Width="180"
+                                    SelectedValuePath="ΠΡΟΚΗΡΥΞΗ_ΚΩΔ" DisplayMemberPath="ΠΡΟΚΗΡΥΞΗ_ΑΡ"
+                                    ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+
+                <Label Content="Επιλογή ΙΕΚ:" Margin="4" FontSize="12" Foreground="Black"/>
+                <telerik:RadComboBox x:Name="cboIekSelection" telerik:StyleManager.Theme="Windows8" Margin="4" Width="180"
+                                    SelectedValuePath="ΙΕΚ_ΟΝΟΜΑΣΙΑ" DisplayMemberPath="ΙΕΚ_ΟΝΟΜΑΣΙΑ"
+                                    ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+
+                <telerik:RadButton Name="btnView" Click="btnView_Click"  Content=" Προβολή " Margin="4" Padding="4" Width="80" 
+                                    telerik:StyleManager.Theme="Windows8" FontSize="12" />
+                <telerik:RadButton Content="Επαναφορά" Name="btnRefresh" Click="btnRefresh_Click" Width="80" Margin="4" Padding="4"
+                                       telerik:StyleManager.Theme="Windows8"   FontSize="12"/>
+
+            </StackPanel>
+
+            <StackPanel Name="chartPanel" Orientation="Horizontal">
+                
+                <StackPanel Margin="3" Orientation="Vertical">
+                    <TextBlock Text="Επιλογή παλέτας:"
+					           Margin="0,0,0,2" />
+                    <ListBox Width="180"
+					 ItemsSource="{Binding Palettes}"
+					 SelectedValue="{Binding Palette, Mode=TwoWay}"
+					 HorizontalAlignment="Left"
+					 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+					 Margin="0,4" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal"
+									Margin="0,3">
+                                    <TextBlock Text="{Binding Name}"
+									   FontWeight="Bold"
+									   MinWidth="64" />
+
+                                    <Border Padding="1,1,0,1"
+									Background="White">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[0].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[1].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[2].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[3].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[4].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[5].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[6].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[7].Fill}" />
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <!--<StackPanel Margin="3">
+                        <StackPanel Margin="3">
+                            <StackPanel Margin="0,2">
+                                <TextBlock Text="Επιλογή μορφής:" />
+                                <telerik:RadComboBox Name="typeCombo" Margin="0,4" SelectedIndex="0" telerik:StyleManager.Theme="Windows8">
+                                    <telerik:RadComboBoxItem Content="Πίτα" />
+                                    <telerik:RadComboBoxItem Content="Δακτύλιος" />
+                                </telerik:RadComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                        <CheckBox Content="Ετικέτες τιμών" 
+					                Margin="0,2"
+					                IsChecked="{Binding ShowLabels, Mode=TwoWay}"
+					                IsEnabled="{Binding IsShowLabelsEnabled, Mode=TwoWay}" />
+                        
+                    </StackPanel>-->
+
+                </StackPanel>
+
+                <StackPanel Name="chartArea" Orientation="Horizontal" Margin="5">
+                          
+                    <!--<vm:ChartSeriesSelector x:Name="Selector" Chart="{Binding ElementName=PieChart}" SelectedIndex="{Binding Path=SelectedIndex, ElementName=typeCombo}">
+                        <vm:ChartSeriesSelector.Series>
+                            <telerik:PieSeries ShowLabels="True" RadiusFactor="0.7">
+                                <telerik:PieSeries.DataPoints>
+                                    <telerik:PieDataPoint Value="43.46" Label="Ιδιώτες&#x0a;43.46%"/>
+                                    <telerik:PieDataPoint Value="27.53" Label="Δημ.Υπ.,Συντ.&#x0a;27.53%" />
+                                    <telerik:PieDataPoint Value="15.11" Label="Άνεργοι&#x0a;15.11%" />
+                                </telerik:PieSeries.DataPoints>
+                                <telerik:PieSeries.LabelDefinitions>
+                                    <telerik:ChartSeriesLabelDefinition Margin="-5,0,0,0" DefaultVisualStyle="{StaticResource LabelStyle}" />
+                                </telerik:PieSeries.LabelDefinitions>
+                                <telerik:PieSeries.AngleRange>
+                                    <telerik:AngleRange StartAngle="270" SweepAngle="360" />
+                                </telerik:PieSeries.AngleRange>
+                            </telerik:PieSeries>
+
+                            <telerik:DoughnutSeries ShowLabels="True" RadiusFactor="0.7">
+                                <telerik:DoughnutSeries.DataPoints>
+                                    <telerik:PieDataPoint Value="43.46" Label="Ιδιώτες&#x0a;43.46%"/>
+                                    <telerik:PieDataPoint Value="27.53" Label="Δημ.Υπ.,Συντ.&#x0a;27.53%" />
+                                    <telerik:PieDataPoint Value="15.11" Label="Άνεργοι&#x0a;15.11%" />
+                                </telerik:DoughnutSeries.DataPoints>
+                                <telerik:DoughnutSeries.LabelDefinitions>
+                                    <telerik:ChartSeriesLabelDefinition Margin="-5,0,0,0" DefaultVisualStyle="{StaticResource LabelStyle}" />
+                                </telerik:DoughnutSeries.LabelDefinitions>
+                                <telerik:DoughnutSeries.AngleRange>
+                                    <telerik:AngleRange StartAngle="270" SweepAngle="360" />
+                                </telerik:DoughnutSeries.AngleRange>
+                            </telerik:DoughnutSeries>
+                        </vm:ChartSeriesSelector.Series>
+                    </vm:ChartSeriesSelector>-->
+
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                        <StackPanel Orientation="Horizontal">
+                            <telerik:RadPieChart x:Name="PieChart1" Palette="{Binding Palette}" Width="340" Height="280">
+
+                        <telerik:PieSeries ShowLabels="True" RadiusFactor="0.7">
+                            <telerik:PieSeries.DataPoints>
+                                <telerik:PieDataPoint Value="43.46" Label="Ιδιώτες&#x0a;43.46%"/>
+                                <telerik:PieDataPoint Value="27.53" Label="Δημ.Υπ.,Συντ.&#x0a;27.53%" />
+                                <telerik:PieDataPoint Value="15.11" Label="Άνεργοι&#x0a;15.11%" />
+                            </telerik:PieSeries.DataPoints>
+                            <telerik:PieSeries.LabelDefinitions>
+                                <telerik:ChartSeriesLabelDefinition Margin="-5,0,0,0" DefaultVisualStyle="{StaticResource LabelStyle}" />
+                            </telerik:PieSeries.LabelDefinitions>
+                            <telerik:PieSeries.AngleRange>
+                                <telerik:AngleRange StartAngle="270" SweepAngle="360" />
+                            </telerik:PieSeries.AngleRange>
+                        </telerik:PieSeries>
+
+                    </telerik:RadPieChart>
+                            <telerik:RadPieChart x:Name="PieChart2" Palette="{Binding Palette}" Width="340" Height="280">
+
+                        <telerik:PieSeries ShowLabels="True" RadiusFactor="0.7">
+                            <telerik:PieSeries.DataPoints>
+                                <telerik:PieDataPoint Value="43.46" Label="Ιδιώτες&#x0a;43.46%"/>
+                                <telerik:PieDataPoint Value="27.53" Label="Δημ.Υπ.,Συντ.&#x0a;27.53%" />
+                                <telerik:PieDataPoint Value="15.11" Label="Άνεργοι&#x0a;15.11%" />
+                            </telerik:PieSeries.DataPoints>
+                            <telerik:PieSeries.LabelDefinitions>
+                                <telerik:ChartSeriesLabelDefinition Margin="-5,0,0,0" DefaultVisualStyle="{StaticResource LabelStyle}" />
+                            </telerik:PieSeries.LabelDefinitions>
+                            <telerik:PieSeries.AngleRange>
+                                <telerik:AngleRange StartAngle="270" SweepAngle="360" />
+                            </telerik:PieSeries.AngleRange>
+                        </telerik:PieSeries>
+
+                    </telerik:RadPieChart>
+                            <telerik:RadPieChart x:Name="PieChart3" Palette="{Binding Palette}" Width="340" Height="280">
+
+                        <telerik:PieSeries ShowLabels="True" RadiusFactor="0.7">
+                            <telerik:PieSeries.DataPoints>
+                                <telerik:PieDataPoint Value="43.46" Label="Ιδιώτες&#x0a;43.46%"/>
+                                <telerik:PieDataPoint Value="27.53" Label="Δημ.Υπ.,Συντ.&#x0a;27.53%" />
+                                <telerik:PieDataPoint Value="15.11" Label="Άνεργοι&#x0a;15.11%" />
+                            </telerik:PieSeries.DataPoints>
+                            <telerik:PieSeries.LabelDefinitions>
+                                <telerik:ChartSeriesLabelDefinition Margin="-5,0,0,0" DefaultVisualStyle="{StaticResource LabelStyle}" />
+                            </telerik:PieSeries.LabelDefinitions>
+                            <telerik:PieSeries.AngleRange>
+                                <telerik:AngleRange StartAngle="270" SweepAngle="360" />
+                            </telerik:PieSeries.AngleRange>
+                        </telerik:PieSeries>
+
+                    </telerik:RadPieChart>
+                        </StackPanel>
+                    </ScrollViewer>
+
+
+            </StackPanel>
+
+            </StackPanel>
+
+
+
+        </StackPanel>
+
+
+    </Grid>
+</Page>

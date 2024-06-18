@@ -1,0 +1,68 @@
+﻿<Page x:Class="Thetis.AppPages.Aitiseis.Experience"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:igWindows="http://infragistics.com/Windows"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:my="clr-namespace:Thetis.Controls"
+      xmlns:local="clr-namespace:Thetis.Utilities"
+      xmlns:nav="clr-namespace:Thetis.Shell.Navigation"
+      mc:Ignorable="d" Initialized="Page_Initialized" Loaded="Page_Loaded" 
+      d:DesignHeight="700" d:DesignWidth="900"
+	Title="Προϋπηρεσίες">
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="WhiteSmoke" Offset="0" />
+            <GradientStop Color="WhiteSmoke" Offset="1" />
+        </LinearGradientBrush>
+    </Page.Background>
+    <Grid>
+
+        <DockPanel LastChildFill="True">
+            <Expander Background="WhiteSmoke"  BorderThickness="2" BorderBrush="White" HorizontalAlignment="Left" ExpandDirection="Right" Padding="4" IsExpanded="True">
+                <Expander.Header>
+                    <TextBlock Text="Προϋπηρεσίες, ΙΕΚ Αίτησης"
+                           FontSize="14"
+                           FontWeight="Bold">
+                  <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                  </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <StackPanel  Width="200">
+                    <Label x:Name ="exp05" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="transferLabel_Click" Content="Μεταφορά προϋπηρεσιών" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="exp01" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Διδακτική προϋπηρεσία" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="exp02" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Επαγγελματική προϋπηρεσία" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="exp03" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Ελεύθερο επάγγελμα" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="exp04" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Ι.Ε.Κ. Αίτησης" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                </StackPanel>
+            </Expander>
+
+            <Border BorderThickness="2" CornerRadius="2" Background="Transparent">
+                <telerik:RadTabControl x:Name="tabctrl" HeaderBackground="#FF550D49">
+                    <local:ClosableTabItem Header="Στοιχεία Αίτησης" x:Name="tabItemExHome" FontSize="14"  >
+                        <Frame x:Name="frmAitisiInfo" Source="AitisiInfo.xaml"></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Διδακτική" x:Name="tabItemExTask1" FontSize="14" Visibility="Collapsed">
+                        <Frame x:Name="frmTeaching" Source="Teaching.xaml"></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Επαγγελματική" x:Name="tabItemExTask2" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="Professional.xaml"></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Ελ. Επάγγελμα" x:Name="tabItemExTask3" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="Freelance.xaml"></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="ΙΕΚ Αίτησης" x:Name="tabItemExTask4" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="OtherIek.xaml"></Frame>
+                    </local:ClosableTabItem>
+                </telerik:RadTabControl>
+
+            </Border>
+        </DockPanel>
+        <my:menuTooltip x:Name="menutip" Grid.Row="1" HorizontalAlignment="Center" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>

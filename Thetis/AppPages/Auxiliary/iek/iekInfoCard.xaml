@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Thetis.AppPages.Auxiliary.iek.iekInfoCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" d:DesignWidth="814">
+    <Grid>
+        <Grid.Resources>
+            <LinearGradientBrush x:Key="OfficeBlackFrame"
+                    EndPoint="0.491356224416577,0.974451988955925"
+                    StartPoint="0.777113682471078,-0.027352265088688">
+                <GradientStop Color="#FF7D7D7D" Offset="0.032501" />
+                <GradientStop Color="#FF4D4D4D" Offset="0.036112000000000033" />
+                <GradientStop Color="#FF656565" Offset="0.065002" />
+                <GradientStop Color="#FF454545" Offset="0.068613000000000035" />
+                <GradientStop Color="#FF353535" Offset="0.72841" />
+                <GradientStop Color="#FF050505" Offset="0.987361" />
+                <GradientStop Color="#FF9F9F9F" Offset="0.54500001668930054" />
+                <GradientStop Color="#FF454545" Offset="0.381" />
+                <GradientStop Color="#FF1C1C1C" Offset="0.66" />
+            </LinearGradientBrush>
+        </Grid.Resources>
+
+        <Border BorderBrush="Black" BorderThickness="2" CornerRadius="0" Background="LightGray" Height="200">
+            <!--<Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="DarkGray" Offset="0" />
+                    <GradientStop Color="LightGray" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+
+                <Border CornerRadius="0" BorderBrush="Gray" BorderThickness="2" 
+                        Background="Transparent" Margin="8" Padding="4" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Gray" Opacity=".50" ShadowDepth="2" />
+                    </Border.Effect>
+                    <Image Source="/Thetis;component/Shell/Images/Other/oaed_logo.gif" Stretch="Fill" 
+                           HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="50" />
+                </Border>
+                <Grid x:Name="detailsGrid" Margin="0,0,0,0" Height="180" Background="LightGray">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="114*" />
+                        <ColumnDefinition Width="244*" />
+                        <ColumnDefinition Width="111*" />
+                        <ColumnDefinition Width="233*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Επωνυμία: " FontWeight="Bold" Height="25" HorizontalAlignment="Left" Width="102" />
+                    <TextBox Text="{Binding ΙΕΚ_ΟΝΟΜΑΣΙΑ}" Grid.Column="1" Height="25" HorizontalAlignment="Left" Width="244" />
+
+                    <TextBlock Text="Διεύθυνση: " FontWeight="Bold" Grid.Row="1" Height="25" Width="102" HorizontalAlignment="Right" />
+                    <TextBox Text="{Binding ΙΕΚ_ΔΙΕΥΘΥΝΣΗ}" Margin="0,2" Grid.Row="1" Grid.Column="1" Height="25" Width="244"  />
+
+                    <TextBlock Text="Τ.Κ.: " FontWeight="Bold" Grid.Row="2" Height="25" />
+                    <TextBox Text="{Binding ΙΕΚ_ΤΚ}" Grid.Row="2" Grid.Column="1" Height="25" Width="244" />
+
+                    <TextBlock Text="Πόλη: " FontWeight="Bold" Grid.Row="3" Height="25" Width="102" />
+                    <TextBox Text="{Binding ΙΕΚ_ΠΟΛΗ}" Grid.Row="3" Grid.Column="1" Height="25" Width="244" />
+
+                    <!-- Right side data -->
+
+                    <TextBlock Text="Τηλέφωνα: " FontWeight="Bold" Grid.Column="2" Height="25" Width="102" Margin="4,0,0,0" />
+                    <TextBox Text="{Binding ΙΕΚ_ΤΗΛ}" Grid.Column="3" Height="25" Width="260"  />
+
+                    <TextBlock Text="Fax: " FontWeight="Bold" Grid.Row="1" Grid.Column="2" Height="25" Width="102" Margin="4,0,0,0" />
+                    <TextBox Text="{Binding ΙΕΚ_FAX}" Grid.Row="1" Grid.Column="3" Height="25" Width="260" />
+
+                    <TextBlock Text="E-mail: " FontWeight="Bold" Grid.Row="2" Grid.Column="2" Height="25" Width="102" Margin="4,0,0,0" />
+                    <TextBox Text="{Binding ΙΕΚ_EMAIL}" Grid.Row="2" Grid.Column="3" Height="25"  Width="260" />
+
+                    <TextBlock Text="Διευθυντής: " FontWeight="Bold" Grid.Row="3" Grid.Column="2" Height="25" Width="102" Margin="4,0,0,0" />
+                    <TextBox Text="{Binding ΙΕΚ_ΔΙΕΥΘΥΝΤΗΣ}" Margin="6,2,5,2" Grid.Row="3" Grid.Column="3" Height="25"  Width="260" />
+
+                    <TextBlock Text="Αναπληρωτής: " FontWeight="Bold" Grid.Row="4" Grid.Column="2" Height="25" Width="102" Margin="4,0,0,0" />
+                    <TextBox Text="{Binding ΙΕΚ_ΑΝΑΠΛΗΡΩΤΗΣ}" Grid.Row="4" Grid.Column="3" Height="25"  Width="260" />
+
+                    <TextBlock Text="Περιφερειακή: " FontWeight="Bold" Grid.Row="5" Height="25" Width="102" Margin="0,0,0,22" />
+                    <telerik:RadComboBox x:Name="cboPeriferiaki" Height="25" Grid.Row="5" Grid.ColumnSpan="3"  
+                		DisplayMemberPath="ΠΕΡΙΦΕΡΕΙΑΚΗ1" SelectedValuePath="ΠΕΡΙΦΕΡΕΙΑΚΗ_ΚΩΔ" telerik:StyleManager.Theme="Windows8" 
+                                         SelectedValue="{Binding ΙΕΚ_ΠΕΡΙΦΕΡΕΙΑΚΗ}" Grid.Column="1" Margin="0,2,5,24"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

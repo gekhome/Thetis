@@ -1,0 +1,209 @@
+﻿<Page x:Class="Thetis.AppPages.Statistics.TeacherWorkCount"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:chart="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Chart"
+	  xmlns:charting="clr-namespace:Telerik.Charting;assembly=Telerik.Windows.Controls.Chart"
+	  xmlns:chartView="clr-namespace:Telerik.Windows.Controls.ChartView;assembly=Telerik.Windows.Controls.Chart"
+	  xmlns:vm="clr-namespace:Thetis.AppPages.Statistics.ChartViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+	Title="TeacherWorkCount">
+
+    <Page.DataContext>
+        <vm:WorkViewModel/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <Style x:Key="legendHeaderStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF767676" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+        </Style>
+        <Style x:Key="titleStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="#FF767676" />
+            <Setter Property="Margin" Value="0,7" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <vm:OrientationToBooleanConverter x:Key="OrientationConverter" />
+    </Page.Resources>
+
+
+    <Grid>
+
+        <StackPanel x:Name="Layout" Orientation="Vertical">
+
+            <StackPanel Name="SelectionPanel" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+                <Label Content="Επιλογή προκήρυξης:" Margin="4" FontSize="12" Foreground="Black"/>
+                <telerik:RadComboBox x:Name="cboProkirixiSelection" telerik:StyleManager.Theme="Windows8" Margin="4" Width="180"
+                                    SelectedValuePath="ΠΡΟΚΗΡΥΞΗ_ΚΩΔ" DisplayMemberPath="ΠΡΟΚΗΡΥΞΗ_ΑΡ"
+                                    ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+
+                <Label Content="Επιλογή ΙΕΚ:" Margin="4" FontSize="12" Foreground="Black"/>
+                <telerik:RadComboBox x:Name="cboIekSelection" telerik:StyleManager.Theme="Windows8" Margin="4" Width="180"
+                                    SelectedValuePath="ΙΕΚ_ΟΝΟΜΑΣΙΑ" DisplayMemberPath="ΙΕΚ_ΟΝΟΜΑΣΙΑ"
+                                    ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+
+                <telerik:RadButton Name="btnView" Click="btnView_Click"  Content=" Προβολή " Margin="4" Padding="4" Width="80" 
+                                    telerik:StyleManager.Theme="Windows8" FontSize="12" />
+                <telerik:RadButton Content="Επαναφορά" Name="btnRefresh" Click="btnRefresh_Click" Width="80" Margin="4" Padding="4"
+                                       telerik:StyleManager.Theme="Windows8"   FontSize="12"/>
+
+            </StackPanel>
+
+            <StackPanel Name="graphPanel" Orientation="Horizontal">
+
+                <StackPanel Margin="3" Orientation="Vertical">
+                    <TextBlock Text="Επιλογή παλέτας:"
+					           Margin="0,0,0,2" />
+                    <ListBox Width="180"
+					 ItemsSource="{Binding Palettes}"
+					 SelectedValue="{Binding Palette, Mode=TwoWay}"
+					 HorizontalAlignment="Left"
+					 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+					 Margin="0,4" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal"
+									Margin="0,3">
+                                    <TextBlock Text="{Binding Name}"
+									   FontWeight="Bold"
+									   MinWidth="64" />
+
+                                    <Border Padding="1,1,0,1"
+									Background="White">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[0].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[1].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[2].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[3].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[4].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[5].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[6].Fill}" />
+                                            <Rectangle Width="12" Height="12" Margin="0,0,1,0" Fill="{Binding GlobalEntries[7].Fill}" />
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <StackPanel Margin="3">
+                        <StackPanel Margin="0,2">
+                            <telerik:RadComboBox Name="cboCombineMode" 
+                                                 ItemsSource="{Binding CombineModeNames}"
+                                                 SelectedValue="{Binding CombineModeName}"
+                                                 SelectionChanged="cboCombineMode_SelectionChanged"
+									             Margin="0,4" telerik:StyleManager.Theme="Windows8" >
+                            </telerik:RadComboBox>
+                        </StackPanel>
+                        <CheckBox Content="Ετικέτες τιμών" 
+					  Margin="0,2"
+					  IsChecked="{Binding ShowLabels, Mode=TwoWay}"
+					  IsEnabled="{Binding IsShowLabelsEnabled, Mode=TwoWay}" />
+                        <StackPanel Margin="0,2">
+                            <TextBlock Text="Προσανατολισμός:" />
+
+                            <CheckBox Content="Οριζόντιος"
+						  Margin="0,4"
+						  IsChecked="{Binding ChartOrientation, Converter={StaticResource OrientationConverter}, Mode=TwoWay}" />
+                        </StackPanel>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="ΠΛΗΘΟΣ ΑΝΑ ΑΠΑΣΧΟΛΗΣΗ ΚΑΙ ΚΛΑΔΟ"
+						       Style="{StaticResource titleStyle}" />
+
+                    <chart:RadCartesianChart x:Name="RadCartesianChart" Width="600" Height="400"
+								     Palette="{Binding Palette}"
+								     Margin="10,0,0,10" 
+                                     vm:OrientationBehavior.Orientation="{Binding ChartOrientation, Mode=TwoWay}">
+
+                        <chartView:BarSeries ItemsSource="{Binding W1}"
+								 ValueBinding="Count"
+								 CategoryBinding="KladosName"
+								 ShowLabels="{Binding ShowLabels, Mode=TwoWay}" 
+								 CombineMode="{Binding BarCombineMode, Mode=TwoWay}"
+								 FontFamily="Segoe UI"
+								 FontSize="10">
+                            <telerik:BarSeries.LegendSettings>
+                                <telerik:SeriesLegendSettings Title="ΙΔΙΩΤΕΣ" />
+                            </telerik:BarSeries.LegendSettings>
+                        </chartView:BarSeries>
+
+                        <chartView:BarSeries ItemsSource="{Binding W2}"
+								 ValueBinding="Count"
+								 CategoryBinding="KladosName"
+								 ShowLabels="{Binding ShowLabels, Mode=TwoWay}"
+								 CombineMode="{Binding BarCombineMode, Mode=TwoWay}"
+								 FontFamily="Segoe UI"
+								 FontSize="10">
+                            <telerik:BarSeries.LegendSettings>
+                                <telerik:SeriesLegendSettings Title="ΔΗΜ.ΥΠ.+ΣΥΝΤ." />
+                            </telerik:BarSeries.LegendSettings>
+                        </chartView:BarSeries>
+
+                        <chartView:BarSeries ItemsSource="{Binding W3}"
+								 ValueBinding="Count"
+								 CategoryBinding="KladosName"
+								 ShowLabels="{Binding ShowLabels, Mode=TwoWay}"
+								 CombineMode="{Binding BarCombineMode, Mode=TwoWay}"
+								 FontFamily="Segoe UI"
+								 FontSize="10">
+                            <telerik:BarSeries.LegendSettings>
+                                <telerik:SeriesLegendSettings Title="ΑΝΕΡΓΟΙ" />
+                            </telerik:BarSeries.LegendSettings>
+                        </chartView:BarSeries>
+
+                        <chart:RadCartesianChart.HorizontalAxis>
+                            <chartView:CategoricalAxis FontFamily="Segoe UI"
+										   FontSize="12"
+										   GapLength="{Binding GapLength}" />
+                        </chart:RadCartesianChart.HorizontalAxis>
+                        <chart:RadCartesianChart.VerticalAxis>
+                            <chartView:LinearAxis FontFamily="Segoe UI"
+									  FontSize="12"
+									   
+									  Minimum="0"
+									  Maximum="{Binding AxisMaxValue}"
+									  LabelFormat="{Binding AxisLabelFormat}" />
+                        </chart:RadCartesianChart.VerticalAxis>
+                        <telerik:RadCartesianChart.Grid>
+                            <telerik:CartesianChartGrid MajorLinesVisibility="Y"
+													StripLinesVisibility="Y">
+                                <telerik:CartesianChartGrid.YStripeBrushes>
+                                    <SolidColorBrush Color="#FFD7D7D7"
+												 Opacity="0.3" />
+                                    <SolidColorBrush Color="Transparent" />
+                                </telerik:CartesianChartGrid.YStripeBrushes>
+                            </telerik:CartesianChartGrid>
+                        </telerik:RadCartesianChart.Grid>
+
+                    </chart:RadCartesianChart>
+                </StackPanel>
+
+                <StackPanel 
+					Margin="0 14 0 0"
+					HorizontalAlignment="Center">
+                    <TextBlock Text="ΚΑΤΗΓΟΡΙΑ:"
+					   Margin="15 0 0 5"
+					   HorizontalAlignment="Left"
+					   Style="{StaticResource legendHeaderStyle}"/>
+
+                    <telerik:RadLegend Margin="15 0 0 5"
+							   Items="{Binding LegendItems, ElementName=RadCartesianChart}"
+							   Foreground="#FF767676"
+							   FontFamily="Segoe UI"/>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+
+</Page>

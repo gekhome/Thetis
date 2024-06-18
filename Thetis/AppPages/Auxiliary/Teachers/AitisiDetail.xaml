@@ -1,0 +1,162 @@
+﻿<UserControl x:Class="Thetis.AppPages.Auxiliary.Teachers.AitisiDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="290" d:DesignWidth="700">
+    <Grid>
+        <telerik:RadTabControl telerik:StyleManager.Theme="Windows8"  Height="264" VerticalAlignment="Top" HeaderBackground="#550D49">
+            <telerik:RadTabItem Header="Γενικά στοιχεία">
+                <Grid Height="240">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="44" />
+                        <RowDefinition Height="33" />
+                        <RowDefinition Height="83" />
+                        <RowDefinition Height="31" />
+                        <RowDefinition Height="72" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="279" />
+                        <ColumnDefinition Width="95" />
+                        <ColumnDefinition Width="213" />
+                        <ColumnDefinition Width="111" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Left side of grid data -->
+                    <TextBlock Text="Α) Εκπλήρωση στρατ/κών υποχρεώσεων:" FontWeight="Bold" HorizontalAlignment="Left" Width="279" Margin="2,16,0,5" Height="23" />
+                    <CheckBox IsEnabled="False"  IsChecked="{Binding ΣΤΡΑΤΙΩΤΙΚΟ_ΕΚΠΛΗΡΩΣΗ}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="2,16,0,5" Width="68" />
+                    <TextBlock Text="Β) Νόμιμη απαλλαγή από αυτές:" FontWeight="Bold" HorizontalAlignment="Left" Width="220" Margin="2,1,0,9" Grid.Row="1" />
+                    <CheckBox IsEnabled="False"  IsChecked="{Binding ΣΤΡΑΤΙΩΤΙΚΟ_ΑΠΑΛΛΑΓΗ}" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2,1,0,9" Width="68" Grid.Row="1" />
+
+                    <GroupBox BorderThickness="2"  Grid.Row="2" Grid.RowSpan="3" Header="Χρονική Ισχύς Βιβλιάριου Υγείας" Height="118" HorizontalAlignment="Left" Margin="2,0,0,0" Name="groupBox1" VerticalAlignment="Top" Width="347" Grid.ColumnSpan="2">
+                        <Grid Width="333">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65*" />
+                                <ColumnDefinition Width="205*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Από:" FontWeight="Bold" HorizontalAlignment="Left" Width="76" Margin="4,10,0,0" Height="23" />
+                            <TextBlock Text="{Binding ΒΙΒΛΙΑΡΙΟ_ΥΓΕΙΑΣ_ΑΠΟ, StringFormat=dd/MM/yyyy}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="246" Margin="1,11,0,1" />
+                            <TextBlock Text="Έως:" FontWeight="Bold" HorizontalAlignment="Left" Width="74" Margin="4,48,0,26" Height="23" Grid.RowSpan="2" />
+                            <TextBlock Text="{Binding ΒΙΒΛΙΑΡΙΟ_ΥΓΕΙΑΣ_ΕΩΣ, StringFormat=dd/MM/yyyy}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="246" Margin="0,48,0,26" Grid.RowSpan="2" />
+                        </Grid>
+                    </GroupBox>
+                    <TextBlock Text="Άνεργος και χωρίς προϋπηρεσία:" FontWeight="Bold" HorizontalAlignment="Left" Width="277" Margin="4,10,0,0" Height="23" Grid.Row="4" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <CheckBox IsEnabled="False"  IsChecked="{Binding ΑΝΕΡΓΟΣ_12}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="68" Grid.Row="4" Margin="2,10,0,0" VerticalAlignment="Top" />
+
+                    <!-- Right side of grid data -->
+                    <TextBlock Grid.Column="2" Height="23" HorizontalAlignment="Left" FontWeight="Bold"  Margin="0,16,0,0" Text="Ηλικία:" VerticalAlignment="Top" Width="213" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" FontWeight="Bold"  Margin="0,1,0,0" Text="Οικογενειακή κατάσταση:" VerticalAlignment="Top" Width="213" Grid.Column="2" Grid.Row="2" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" FontWeight="Bold" Text="Αριθμός τέκνων:" VerticalAlignment="Top" Width="213" Grid.Column="2" Grid.Row="1" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" FontWeight="Bold" Text="Εργασία:" VerticalAlignment="Top" Width="69" Grid.Column="2" Grid.Row="3" />
+                    <TextBlock Grid.Column="3" Height="23" Width="105" HorizontalAlignment="Left" Margin="0,16,0,0" Text="{Binding ΗΛΙΚΙΑ}" VerticalAlignment="Top" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,1,0,0" Text="{Binding ΤΕΚΝΑ}" VerticalAlignment="Top" Width="105" Grid.Column="3" Grid.Row="1" />
+                    <ComboBox Name="cboFamily"  Height="23" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="105" Grid.Column="3" Grid.Row="2"
+                              SelectedValue="{Binding ΟΙΚ_ΚΑΤΑΣΤΑΣΗ}" SelectedValuePath="ΚΑΤΑΣΤΑΣΗ_ΚΩΔ" DisplayMemberPath="ΚΑΤΑΣΤΑΣΗ" IsEnabled="False" />
+                    <ComboBox Name="cboErgasia"  Height="23" HorizontalAlignment="Left" Margin="66,1,0,0" VerticalAlignment="Top" Width="252" Grid.Column="2" Grid.Row="3"
+                              SelectedValue="{Binding ΕΡΓΑΣΙΑ}" SelectedValuePath="ΕΡΓΑΣΙΑ_ΚΩΔ" DisplayMemberPath="ΕΡΓΑΣΙΑ1" IsEnabled="False" Grid.ColumnSpan="2" />
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Στοιχεία σπουδών">
+                <Grid Height="240">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="174*" />
+                        <ColumnDefinition Width="174*" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="229" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Right side of grid -->
+                    <Label Content="Κλάδος:" FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="1" Content="Ειδικότητα:"  FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="2" Content="Βαθμίδα Εκπαίδευσης:"  FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="3" Content="Βαθμός Πτυχίου:"  FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="4" Content="Ημ/νια κτήσης Πτυχίου:"  FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="5" Content="Τίτλος Πτυχίου:"  FontWeight="Bold" Margin="0,0,0,15" />
+                    <ComboBox Grid.Column="1"  Name="cboKlados" IsEnabled="False"
+                              SelectedValue="{Binding ΚΛΑΔΟΣ}" SelectedValuePath="ΚΩΔ_ΚΛΑΔΟΣ" DisplayMemberPath="ΚΛΑΔΟΣ1" Margin="0,0,0,15" />
+                    <ComboBox Grid.Row="1" Grid.Column="1"  Name="cboEidikotita" IsEnabled="False"
+                              SelectedValue="{Binding ΕΙΔΙΚΟΤΗΤΑ}" SelectedValuePath="ΚΛΑΔΟΣ_ΚΩΔ" DisplayMemberPath="ΚΛΑΔΟΣ" Margin="0,0,0,15" />
+                    <ComboBox Grid.Row="2" Grid.Column="1"  Name="cboSpoudes" IsEnabled="False"
+                              SelectedValue="{Binding ΣΠΟΥΔΕΣ}" SelectedValuePath="ΚΩΔ_ΣΠΟΥΔΕΣ" DisplayMemberPath="ΒΑΘΜΙΔΑ" Margin="0,0,0,15" />
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding ΒΑΘΜΟΣ_ΠΤΥΧΙΟΥ}" Margin="0,4,0,15" />
+                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding ΗΜΝΙΑ_ΠΤΥΧΙΟΥ, StringFormat=dd/MM/yyyy}" Margin="0,4,0,15" />
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding ΤΙΤΛΟΣ_ΠΤΥΧΙΟΥ}" Margin="0,4,0,15" />
+                    <!-- Left side of grid -->
+                    <Label Grid.Row="0" Grid.Column="2" Content="Μεταπτυχιακό:" FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="1" Grid.Column="2" Content="Τίτλος Μεταπτ.:" FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="2" Grid.Column="2" Content="Διδακτορικό:" FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="3" Grid.Column="2" Content="Τίτλος Διδακτ.:" FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="4" Grid.Column="2" Content="Παιδαγωγικό:" FontWeight="Bold" Margin="0,0,0,15" />
+                    <Label Grid.Row="5" Grid.Column="2" Content="Τίτλος Παιδαγ.:" FontWeight="Bold" Margin="0,0,0,15" />
+                    <CheckBox Grid.Row="0" Grid.Column="3"  IsChecked="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ}" Margin="0,6,0,15" IsEnabled="False"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ_ΤΙΤΛΟΣ}" Margin="0,4,0,15" />
+                    <CheckBox Grid.Row="2" Grid.Column="3"  IsChecked="{Binding ΔΙΔΑΚΤΟΡΙΚΟ}" Margin="0,6,0,15" IsEnabled="False"/>
+                    <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding ΔΙΔΑΚΤΟΡΙΚΟ_ΤΙΤΛΟΣ}" Margin="0,4,0,15" />
+                    <CheckBox Grid.Row="4" Grid.Column="3"  IsChecked="{Binding ΠΑΙΔΑΓΩΓΙΚΟ}" Margin="0,6,0,15" IsEnabled="False"/>
+                    <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding ΠΑΙΔΑΓΩΓΙΚΟ_ΤΙΤΛΟΣ}" Margin="0,4,0,15" />
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Στοιχεία μοριοδότησης">
+                <Grid Height="240">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="163" />
+                        <ColumnDefinition Width="116" />
+                        <ColumnDefinition Width="137" />
+                        <ColumnDefinition Width="282" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Left side of grid -->
+                    <Label Grid.Row="0" Grid.Column="0" Content="Μόρια Μεταπτυχιακού:" FontWeight="Bold" />
+                    <Label Grid.Row="1" Grid.Column="0" Content="Μόρια Διδακτορικού:" FontWeight="Bold" />
+                    <Label Grid.Row="2" Grid.Column="0" Content="Μόρια Παιδαγωγικού:" FontWeight="Bold" />
+                    <Label Grid.Row="3" Grid.Column="0" Content="Μόρια Διδακτικής:" FontWeight="Bold" />
+                    <Label Grid.Row="4" Grid.Column="0" Content="Μόρια Επαγγελματικής:" FontWeight="Bold" />
+                    <Label Grid.Row="5" Grid.Column="0" Content="Μόρια Ελ.Επαγγέλματος:" FontWeight="Bold" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ_ΜΟΡΙΑ}" Margin="0,4,0,15" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ΔΙΔΑΚΤΟΡΙΚΟ_ΜΟΡΙΑ}" Margin="0,4,0,15" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ΠΑΙΔΑΓΩΓΙΚΟ_ΜΟΡΙΑ}" Margin="0,4,0,15" />
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding ΔΙΔΑΚΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Margin="0,4,0,15" />
+                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding ΕΠΑΓΓΕΛΜΑΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Margin="0,4,0,15" />
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding ΕΛΕΥΘΕΡΟ_ΕΠΑΓΓΕΛΜΑ}" Margin="0,4,0,15" />
+                    <!-- Right side of grid -->
+                    <Label Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Content="Παρατηρήσεις:" FontWeight="Bold" />
+                    <Label Grid.Row="2" Grid.Column="2" Content="Αποκλεισμός:" FontWeight="Bold" />
+                    <Label Grid.Row="3" Grid.Column="2" Content="Αιτία αποκλεισμού:" FontWeight="Bold" />
+                    <Label Grid.Row="4" Grid.Column="2" Content="Έγινε ένσταση:" FontWeight="Bold" />
+                    <Label Grid.Row="5" Grid.Column="2" Content="Έγινε αποδεκτή:" FontWeight="Bold" />
+                    <Border BorderBrush="DarkGray" CornerRadius="2"  BorderThickness="1" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" >
+                        <ScrollViewer>
+                            <TextBlock Text="{Binding ΠΑΡΑΤΗΡΗΣΕΙΣ}" Margin="0,4,0,15" FontSize="10" TextWrapping="Wrap" />
+                        </ScrollViewer>
+                    </Border>
+                    <CheckBox Grid.Row="2" Grid.Column="3" IsEnabled="False"  IsChecked="{Binding ΑΠΟΚΛΕΙΣΜΟΣ}" Margin="0,6,0,15"/>
+                    <ComboBox Grid.Row="3" Grid.Column="3" Margin="0,4,0,15" IsEnabled="False" Name="cboApokleismos" 
+                              SelectedValue="{Binding ΑΠΟΚΛΕΙΣΜΟΣ_ΑΙΤΙΑ}" SelectedValuePath="ΚΩΔ_ΑΠΟΚΛΕΙΣΜΟΣ" DisplayMemberPath="ΑΙΤΙΑ" />
+                    <CheckBox Grid.Row="4" Grid.Column="3" IsChecked="{Binding ΕΝΣΤΑΣΗ}" Margin="0,6,0,15" IsEnabled="False"/>
+                    <CheckBox Grid.Row="5" Grid.Column="3" IsChecked="{Binding ΑΠΟΔΕΚΤΗ}" Margin="0,6,0,15" IsEnabled="False"/>
+                    
+                </Grid>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>   
+    </Grid>
+</UserControl>

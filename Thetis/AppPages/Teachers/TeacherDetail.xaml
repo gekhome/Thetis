@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="Prototype.AppPages.Teachers.TeacherDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             xmlns:local="clr-namespace:Prototype.AppPages.Auxiliary.Teachers"
+             xmlns:c="clr-namespace:Prototype.Utilities"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="800">
+    
+    <Grid>
+        
+        <telerik:RadTabControl telerik:StyleManager.Theme="Windows7" HorizontalAlignment="Left" Width="746">
+            <telerik:RadTabItem Header="Ατομικά στοιχεία">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Border CornerRadius="8" BorderBrush="Gray" BorderThickness="3" 
+                        Background="Transparent" Margin="8" Padding="4" Height="72" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Gray" Opacity=".50" ShadowDepth="2" />
+                        </Border.Effect>
+                        <Image x:Name="SexPhoto" Stretch="Fill" 
+                           HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Height="60" />
+                    </Border>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <!-- Left side of grid data -->
+                        <TextBlock Text="Επώνυμο" FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="0,10,0,0" Height="23"/>
+                        <TextBox Text="{Binding ΕΠΩΝΥΜΟ}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="200" Margin="2,11,0,0" />
+                        <TextBlock Text="Όνομα" FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="0,10,0,0" Height="23" Grid.Row="1"/>
+                        <TextBox Text="{Binding ΟΝΟΜΑ}" Grid.Column="1" HorizontalAlignment="Left" Width="200" Grid.Row="1" Height="23" Margin="2,10,0,2" />
+                        <TextBlock Text="Πατρώνυμο" FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="0,10,0,0" Height="23" Grid.Row="2"/>
+                        <TextBox Text="{Binding ΠΑΤΡΩΝΥΜΟ}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="200" Grid.Row="2" Margin="2,11,0,1" />
+                        <TextBlock Text="Μητρώνυμο" FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="0,10,0,0" Height="23" Grid.Row="3"/>
+                        <TextBox Text="{Binding ΜΗΤΡΩΝΥΜΟ}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="200" Grid.Row="3" Margin="2,12,0,0" />
+                        <TextBlock Text="Ημ/νια Γέννησης" FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="0,10,0,0" Height="23" Grid.Row="4"/>
+                        <!--
+                        <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="4" DateTimeWatermarkContent="Εισάγετε ημερομηνία"  
+                                                   Height="23" Margin="2,12,59,1" VerticalAlignment="Center" InputMode="DatePicker"
+                                                   SelectedValue="{Binding Path=ΗΜΝΙΑ_ΓΕΝΝΗΣΗ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}"/>
+                         -->
+                        <DatePicker Grid.Column="1" Grid.Row="4" Height="23" HorizontalAlignment="Left" Margin="2,10,59,1" 
+                                     c:DatePickerWatermark.Watermark="Ημερομηνία..."
+                                    VerticalAlignment="Center" Width="150" IsEnabled="True">
+                            <DatePicker.SelectedDate>
+                                <Binding Path="ΗΜΝΙΑ_ΓΕΝΝΗΣΗ" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <c:BirthDateRule MinAge="20" MaxAge="66" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </DatePicker.SelectedDate>
+                        </DatePicker>
+
+                                <!-- Right side of grid data -->
+                        <TextBlock Text="Α.Φ.Μ." Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="4,10,0,0" Height="23" />
+                        <TextBox Grid.Column="3" Height="23" HorizontalAlignment="Left" Width="200" Margin="2,11,0,1" MaxLength="9">
+                            <TextBox.Text>
+                                <Binding Path="ΑΦΜ" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <c:afmRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBlock Text="Δ.Ο.Υ." Grid.Column="2"  FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="4,10,0,0" Height="23" Grid.Row="1"/>
+                        <TextBox Text="{Binding ΔΟΥ}" Grid.Column="3" Height="23" HorizontalAlignment="Left" Width="200" Margin="2,12,0,34" Grid.Row="1" Grid.RowSpan="2" />
+                        <TextBlock Text="Α.Μ.Κ.Α." Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="4,10,0,0" Height="23" Grid.Row="2"/>
+                        <TextBox Text="{Binding ΑΜΚΑ}" Grid.Column="3" Height="23" HorizontalAlignment="Left" Width="200" Margin="2,11,0,1" Grid.Row="2"/>
+                        <TextBlock Text="Α.Δ.Τ." Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="4,10,0,0" Height="23" Grid.Row="3"/>
+                        <TextBox Text="{Binding ΑΔΤ}" Grid.Column="3" Height="23" HorizontalAlignment="Left" Width="200" Margin="2,11,0,0" Grid.Row="3" />
+                        <TextBlock Text="Φύλο" Grid.Column="2"  FontWeight="Bold" HorizontalAlignment="Left" Width="100" Margin="4,10,0,0" Height="23" Grid.Row="4"/>
+                        <ComboBox DisplayMemberPath="ΦΥΛΟ" Grid.Column="3" Height="23" HorizontalAlignment="Left" SelectedValuePath="ΚΩΔ_ΦΥΛΟ"
+                                  SelectedValue="{Binding Path=ΦΥΛΟ}" Margin="2,10" Name="cbosex" VerticalAlignment="Center" Width="100" Grid.Row="4" SelectionChanged="cbosex_SelectionChanged"/>
+
+                    </Grid>
+                </StackPanel>
+                
+                
+                
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="Επικοινωνία">
+                <Grid Width="711">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="82" />
+                        <ColumnDefinition Width="254" />
+                        <ColumnDefinition Width="113" />
+                        <ColumnDefinition Width="349" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Left side of grid data -->
+                    <TextBlock Text="Οδός, Αρ." FontWeight="Bold" HorizontalAlignment="Left" Width="80" Margin="2,10,0,0" Height="23"/>
+                    <TextBox Text="{Binding ΔΝΣΗ_ΟΔΟΣ}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="240" Margin="0,15,0,5" />
+                    <TextBlock Text="Τ.Κ." FontWeight="Bold" HorizontalAlignment="Left" Width="80" Margin="2,10,0,0" Height="23" Grid.Row="1"/>
+                    <TextBox Text="{Binding ΔΝΣΗ_ΤΚ}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="240" Margin="0,14,0,6" Grid.Row="1"/>
+                    <TextBlock Text="Πόλη" FontWeight="Bold" HorizontalAlignment="Left" Width="80" Margin="2,10,0,0" Height="23" Grid.Row="2"/>
+                    <TextBox Text="{Binding ΔΝΣΗ_ΠΟΛΗ}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="240" Margin="0,16,0,4" Grid.Row="2"/>
+                    <TextBlock Text="Περιοχή" FontWeight="Bold" HorizontalAlignment="Left" Width="80" Margin="2,10,0,0" Height="23" Grid.Row="3"/>
+                    <TextBox Text="{Binding ΠΕΡΙΟΧΗ}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="240" Margin="0,15,0,5" Grid.Row="3"/>
+
+                    <!-- Right side of grid data -->
+                    <TextBlock Text="Τηλέφωνο (1)" Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Left" Width="90" Margin="2,10,0,0" Height="23"/>
+                    <TextBox Text="{Binding ΤΗΛΕΦΩΝΟ1}" Grid.Column="3" Height="23" HorizontalAlignment="Left" Width="240" Margin="0,15,0,5" />
+                    <TextBlock Text="Τηλέφωνο (2)" Grid.Column="2"  FontWeight="Bold" HorizontalAlignment="Left" Width="90" Margin="2,10,0,0" Height="23" Grid.Row="1"/>
+                    <TextBox Text="{Binding ΤΗΛΕΦΩΝΟ2}" Grid.Column="3" Height="23" HorizontalAlignment="Left" Width="240" Margin="0,14,0,6" Grid.Row="1"/>
+                    <TextBlock Text="Παρατηρήσεις" Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Left" Width="90" Margin="2,10,0,0" Height="23" Grid.Row="2"/>
+                    <TextBox Text="{Binding ΠΑΡΑΤΗΡΗΣΕΙΣ}" Grid.RowSpan="2" Grid.Column="3" HorizontalAlignment="Left" Width="240" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,4" Height="66" />
+
+                </Grid>
+
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+        
+    </Grid>
+</UserControl>

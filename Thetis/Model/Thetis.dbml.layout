@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 36.25, 20.625" name="Thetis">
+  <DataContextMoniker Name="/ThetisDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e8fa3c63-2e2a-49d0-b327-93948aff8635" absoluteBounds="8.75, 4.75, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/ThetisDataContext/PROK_STATUS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14537932-696a-4278-b71e-af147fc34466" absoluteBounds="8.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8cc6a6a2-5830-4d67-b257-e73d93db5045" absoluteBounds="8.75, 6.75, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/ThetisDataContext/ΦΥΛΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ee64165-2cdc-4229-9d0c-b8892d399a41" absoluteBounds="8.765, 7.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="493d88ce-1a1d-4d23-81a5-6fdfd66d90be" absoluteBounds="8.75, 8.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ThetisDataContext/USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7c8e8c7-5f4a-44f7-aee1-adf6daeb5486" absoluteBounds="8.765, 9.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca096e84-b1ac-4228-9197-cf419ff1e783" absoluteBounds="3.75, 10.75, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/ThetisDataContext/ΑΙΤΗΣΗ_ΙΕΚ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0cd47f12-ea72-4d9c-b581-e11b16e59c30" absoluteBounds="3.765, 11.21, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="486d289c-79af-44d2-b7c9-b0fe848b1992" absoluteBounds="11.75, 5.75, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/ThetisDataContext/ΑΠΟΚΛΕΙΣΜΟΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6d819f9-479a-4ecb-97cf-6c384efeea01" absoluteBounds="11.765, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e22b7f2-e9bb-4409-8bcf-036faf616bf7" absoluteBounds="6.75, 11.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΙΔΙΚΟΤΗΤΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="294f0aa0-b258-4d7a-9ba4-2135748bff88" absoluteBounds="6.765, 12.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b51e3954-bc13-4100-9d26-1d6a29810a96" absoluteBounds="11.75, 7.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΚΠ_ΕΡΓΑΣΙΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b5626aca-99ac-48cd-a279-a04c21315b2d" absoluteBounds="11.765, 8.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7004b0d-442d-45bd-a76f-f83fd91bee16" absoluteBounds="11.75, 9.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΚΠ_ΙΕΚ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f3c8fe5-44cb-46de-a80f-d82372a24525" absoluteBounds="11.765, 10.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b2f48700-1b8b-442b-b34a-8cb077d727d1" absoluteBounds="0.75, 3.5, 2, 4.2708154296875">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΚΠΑΙΔΕΥΤΙΚΟΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46cf291a-5dda-4cf7-9ee1-8aa9d90b1d5e" absoluteBounds="0.765, 3.96, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d0f07ce3-dc9d-498d-9ab4-c75d71fa64bd" absoluteBounds="10.375, 13.625, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΝΤΥΠΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d80e75d-85ec-4af4-b212-2141328f1569" absoluteBounds="10.39, 14.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="109c5661-b124-433c-8437-06e1fb318e67" absoluteBounds="12.75, 11.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΡΓΑΣΙΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e1e4da0-9577-4305-85fd-b1e54f613c19" absoluteBounds="12.765, 12.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cb0474fd-ab32-4ce3-942b-e13c0aa74eda" absoluteBounds="12.75, 13.75, 2, 1.0016910807291666">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΤΟΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84d65552-a741-45ca-bc74-da833b037724" absoluteBounds="12.765, 14.21, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="47d78bf4-5084-4dc0-930d-f491b60a5c52" absoluteBounds="14.75, 5.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΤΟΣ_ΑΦΕΙΣΟΔΗΜΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a27c1957-6671-4cb9-ba09-c42b70359485" absoluteBounds="14.765, 6.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a5d172b5-f8a8-4bbe-a215-10ea156ad205" absoluteBounds="14.25, 1, 2, 3.1170068359374996">
+      <DataClassMoniker Name="/ThetisDataContext/ΙΕΚ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3a4f4be-d060-43e5-a3b8-1b5e7b3dda0d" absoluteBounds="14.265, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="148389f1-1c09-4c7d-bf67-df5f439363f9" absoluteBounds="6.75, 13.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ThetisDataContext/ΚΛΑΔΟΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c87d3e9c-b828-4626-82b2-c68a139e50e7" absoluteBounds="6.765, 14.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="60add9ab-d1e9-4e18-a898-bd534dd7d1dd" absoluteBounds="11.5, 1.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ThetisDataContext/ΝΟΜΟΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c6ffd8e-7050-4a48-b447-c5280934ce8a" absoluteBounds="11.515, 2.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e24f7ffc-b3c4-48b6-966a-a9c3abdc9c1a" absoluteBounds="14.75, 8.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΟΔΗΓΙΕΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="673f893a-fc63-429e-9b80-fddcf5bddf5f" absoluteBounds="14.765, 9.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="27e4094d-e193-4156-a03c-45c4690c9497" absoluteBounds="9.75, 15.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΟΙΚΟΓΕΝΕΙΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="460d7325-5801-442f-b0a9-391acf959d94" absoluteBounds="9.765, 16.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb20f949-3849-4d01-8c0f-4d3b8749c007" absoluteBounds="8.75, 1.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ThetisDataContext/ΠΕΡΙΦΕΡΕΙΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b37d30e-4fbe-4670-b81f-ac108fea46da" absoluteBounds="8.765, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8dd6b70-bb62-4bc1-b38e-10771b401e03" absoluteBounds="15.25, 10.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΠΕΡΙΦΕΡΕΙΑΚΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9b363f2-541f-4951-819f-e59c3a6b793d" absoluteBounds="15.265, 11.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b761e6d-1d04-42d8-b7d3-92bd85c3ffe1" absoluteBounds="15.75, 12.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΠΙΝΑΚΕΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f4adea43-1392-4f43-8f5a-0ed3f0be8c60" absoluteBounds="15.765, 13.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2dc093f3-5ac4-4c32-89f5-24d5e70fa155" absoluteBounds="12.75, 15.75, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/ThetisDataContext/ΠΡΟΚ_ΙΕΚ_ΕΙΔΙΚΟΤΗΤΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="54f7a39a-0f6f-41af-9787-521048fb98b3" absoluteBounds="12.765, 16.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0171848-2904-4a76-b612-067636daa919" absoluteBounds="16.75, 0.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/ThetisDataContext/ΠΡΟΣΛΗΨΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21ce1752-bba8-42b7-afd0-f32b6139e0f9" absoluteBounds="16.765, 1.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d45db2a-d920-48fc-9000-33b7eed1cc98" absoluteBounds="0.75, 19.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΠΡΟΣΛΗΨΗ_ΕΙΔΟΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8b25d0e6-9778-4fc4-b185-3a504069ad65" absoluteBounds="0.76500000000000012, 19.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a55b997b-ca75-4de6-bd93-4a450b0fecf0" absoluteBounds="17.75, 5.75, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/ThetisDataContext/ΣΠΟΥΔΕΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c54c8c8-5881-4f99-b5a7-f9a03f20811e" absoluteBounds="17.765, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f8c225c6-68a5-4864-a087-d7bcf4249d9b" absoluteBounds="6.75, 17.75, 2, 1.5785953776041701">
+      <DataClassMoniker Name="/ThetisDataContext/ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e9fb8e2-bc4e-42cd-9405-4b2d692d2a0b" absoluteBounds="6.765, 18.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.5 : 2.53929768880208); (14.25 : 2.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ThetisDataContext/ΝΟΜΟΣ/ΝΟΜΟΣ_ΙΕΚ" />
+      <nodes>
+        <classShapeMoniker Id="60add9ab-d1e9-4e18-a898-bd534dd7d1dd" />
+        <classShapeMoniker Id="a5d172b5-f8a8-4bbe-a215-10ea156ad205" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.75 : 2.56814697265625); (11.5 : 2.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ThetisDataContext/ΠΕΡΙΦΕΡΕΙΑ/ΠΕΡΙΦΕΡΕΙΑ_ΝΟΜΟΣ" />
+      <nodes>
+        <classShapeMoniker Id="bb20f949-3849-4d01-8c0f-4d3b8749c007" />
+        <classShapeMoniker Id="60add9ab-d1e9-4e18-a898-bd534dd7d1dd" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="78558261-a01e-4fe5-9d9e-7f3f7cfdafe4" absoluteBounds="1, 0.75, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ThetisDataContext/ΝΟΜΙΣΜΑΤΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac08c8dc-8e35-4c48-9b98-ed239576afa8" absoluteBounds="1.0150000000000001, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.75 : 13.75); (7.75 : 13.1362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ThetisDataContext/ΚΛΑΔΟΣ/ΚΛΑΔΟΣ_ΕΙΔΙΚΟΤΗΤΑ" />
+      <nodes>
+        <classShapeMoniker Id="148389f1-1c09-4c7d-bf67-df5f439363f9" />
+        <classShapeMoniker Id="1e22b7f2-e9bb-4409-8bcf-036faf616bf7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b8845d1a-20ea-42e6-a6e6-6c924fea71d3" absoluteBounds="3.5, 17.625, 2.5, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΠΑΓΓΕΛΜΑΤΙΚΗ_ΣΥΝΟΛΟ_ΜΟΡΙΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8489f469-3fdc-4cc9-9797-128bc88323f2" absoluteBounds="3.515, 18.085, 2.4699999999999998, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f06c6883-a3b8-4572-8d23-f3e19dc269f1" absoluteBounds="3.5, 16.25, 2.5, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΔΙΔΑΚΤΙΚΗ_ΣΥΝΟΛΟ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="66670a0d-1104-4fe9-a9bf-7951feab4077" absoluteBounds="3.515, 16.71, 2.4699999999999998, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e1c165f6-2ca9-4162-a0bb-95240263d429" absoluteBounds="3.5, 19.125, 2.5, 1.1939925130208344">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΕΠΑΓΓΕΛΜΑ_ΣΥΝΟΛΟ_ΜΟΡΙΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8bd47e9f-adc5-4c80-b918-9c0fe28ae5e2" absoluteBounds="3.515, 19.585, 2.4699999999999998, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="26eaf01e-04cb-4f1e-bec2-846d535ce5b3" absoluteBounds="9.25, 11.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/ThetisDataContext/qryΕΙΔΙΚΟΤΗΤΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1b659e50-8d69-441e-9c8f-c4c2d78c4334" absoluteBounds="9.265, 12.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="db64255b-f550-4a6e-8174-f0e50641c02f" absoluteBounds="17.875, 7.375, 2, 4.8477197265625005">
+      <DataClassMoniker Name="/ThetisDataContext/qryAITISI_TEACHER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3685da2d-a830-45f3-914e-4e9f27330004" absoluteBounds="17.89, 7.8350000000000009, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2528191-ee1e-4233-b209-c92542efe216" absoluteBounds="15.75, 14.25, 2, 4.0785139973958344">
+      <DataClassMoniker Name="/ThetisDataContext/ΠΡΟΚΗΡΥΞΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d32e1505-d20a-4fb1-99a5-aae365e6e82a" absoluteBounds="15.765, 14.71, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e4415308-5547-43e9-bd41-a2064fdf1497" absoluteBounds="3.375, 1.375, 2, 8.5014469401041666">
+      <DataClassMoniker Name="/ThetisDataContext/ΑΙΤΗΣΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2545023-e51c-4915-ab46-d286efb43968" absoluteBounds="3.3899999999999997, 1.835, 1.9700000000000002, 7.9414469401041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5.36285522460937); (3.375 : 5.36285522460937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ThetisDataContext/ΕΚΠΑΙΔΕΥΤΙΚΟΣ/ΕΚΠΑΙΔΕΥΤΙΚΟΣ_ΑΙΤΗΣΗ" />
+      <nodes>
+        <classShapeMoniker Id="b2f48700-1b8b-442b-b34a-8cb077d727d1" />
+        <classShapeMoniker Id="e4415308-5547-43e9-bd41-a2064fdf1497" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14.25 : 1.46875); (5.375 : 1.46875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ThetisDataContext/ΙΕΚ/ΙΕΚ_ΑΙΤΗΣΗ" />
+      <nodes>
+        <classShapeMoniker Id="a5d172b5-f8a8-4bbe-a215-10ea156ad205" />
+        <classShapeMoniker Id="e4415308-5547-43e9-bd41-a2064fdf1497" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6e4a907c-1f06-4db1-a400-96c60ba68018" absoluteBounds="19.375, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ThetisDataContext/qryMultipleAppsNomosBeta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01dd2674-deec-4ae0-947b-9f763686936a" absoluteBounds="19.39, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="15a8b1a6-4324-4ace-bf92-6a5aa55a7abd" absoluteBounds="6.25, 6.5, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΚΠ_ΔΙΔΑΚΤΙΚΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63a76bea-3ca0-452d-8019-c876ac03d5bb" absoluteBounds="6.265, 6.9600000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 7.60817586263021); (6.25 : 7.60817586263021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ThetisDataContext/ΑΙΤΗΣΗ/ΑΙΤΗΣΗ_ΕΚΠ_ΔΙΔΑΚΤΙΚΗ" />
+      <nodes>
+        <classShapeMoniker Id="e4415308-5547-43e9-bd41-a2064fdf1497" />
+        <classShapeMoniker Id="15a8b1a6-4324-4ace-bf92-6a5aa55a7abd" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fedb85d9-15bf-4c72-abfc-cfc44196657c" absoluteBounds="6.125, 3.75, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΚΠ_ΕΕΠΑΓΓΕΛΜΑ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a1323e0-be08-4753-9185-4b50520569c7" absoluteBounds="6.14, 4.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 4.87329223632813); (6.125 : 4.87329223632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ThetisDataContext/ΑΙΤΗΣΗ/ΑΙΤΗΣΗ_ΕΚΠ_ΕΕΠΑΓΓΕΛΜΑ" />
+      <nodes>
+        <classShapeMoniker Id="e4415308-5547-43e9-bd41-a2064fdf1497" />
+        <classShapeMoniker Id="fedb85d9-15bf-4c72-abfc-cfc44196657c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cd87bec0-9e8b-4cd0-90e9-43b9f2b2549e" absoluteBounds="6.125, 1.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ThetisDataContext/ΕΚΠ_ΕΠΑΓΓΕΛΜΑΤΙΚΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9b6cf7d-d4b0-4ab2-b96f-4d0fffe5b562" absoluteBounds="6.14, 2.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 2.58394490559896); (6.125 : 2.58394490559896)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ThetisDataContext/ΑΙΤΗΣΗ/ΑΙΤΗΣΗ_ΕΚΠ_ΕΠΑΓΓΕΛΜΑΤΙΚΗ" />
+      <nodes>
+        <classShapeMoniker Id="e4415308-5547-43e9-bd41-a2064fdf1497" />
+        <classShapeMoniker Id="cd87bec0-9e8b-4cd0-90e9-43b9f2b2549e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6a0bd44b-c1e3-474a-b74d-da47eab08fca" absoluteBounds="22, 0.875, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΣΥΝΟΨΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6ff5839c-377a-4f4c-b68f-72b006db5167" absoluteBounds="22.015, 1.335, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3f8372db-f2b2-4590-9a1e-118dffcec844" absoluteBounds="24.5, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΦΥΛΟ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d9660fd-0f60-4b12-afd8-138da39b1233" absoluteBounds="24.515, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="114928aa-bd50-4656-a9f2-4558471416e8" absoluteBounds="26.875, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΦΥΛΟ_ALL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e073c12-819b-4e9d-b88f-5cda9935d1d0" absoluteBounds="26.89, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="05065c34-08c3-41be-b126-3f1622402722" absoluteBounds="26.75, 2.5, 2.25, 1.5785953776041666">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΦΥΛΟ_ΠΡΟΚΗΡΥΞΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9a7452ef-5ff4-4273-9761-071cd23a7eca" absoluteBounds="26.765, 2.96, 2.2199999999999998, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2ca427a-1bc1-4382-9586-c79ece709cb7" absoluteBounds="26.75, 4.375, 2.25, 1.7708968098958331">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΦΥΛΟ_ΠΡΟΚ_ΙΕΚ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47f8fac8-3871-4aa5-9388-a3dbb39d507d" absoluteBounds="26.765, 4.835, 2.2199999999999998, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7180fe1-05f2-481a-a11d-f0bed6525a44" absoluteBounds="29.625, 0.875, 2.5, 1.5785953776041666">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΚΛΑΔΟΣ_ΕΡΓΑΣΙΑ_ΟΛΕΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75c422f8-97c9-4756-855a-4bbe9879239f" absoluteBounds="29.64, 1.335, 2.4699999999999998, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9a9032a-e5b9-4128-81e0-00b4dd7f6419" absoluteBounds="29.625, 4.75, 2.75, 1.9631982421875">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΚΛΑΔΟΣ_ΕΡΓΑΣΙΑ_ΠΡΟΚ_ΙΕΚ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eaa417e6-b45d-4d6b-8ba0-bb5840ca6af6" absoluteBounds="29.64, 5.21, 2.7199999999999998, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3cba008-5b36-4b8d-85cb-afa23cf66e23" absoluteBounds="29.625, 2.625, 2.5, 1.7708968098958331">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΚΛΑΔΟΣ_ΕΡΓΑΣΙΑ_ΠΡΟΚΗΡΥΞΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a23a0c0c-b5de-4fbc-b3bb-45cf5d869940" absoluteBounds="29.64, 3.085, 2.4699999999999998, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="00e25cee-d3cf-41fc-a6a1-91b8f33fadf8" absoluteBounds="32.875, 0.875, 3, 1.5785953776041666">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΚΛΑΔΟΣ_ΑΝΕΡΓΟΙ_ΟΛΕΣ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87697f95-56af-4d9c-82fb-4968569f9505" absoluteBounds="32.89, 1.335, 2.9699999999999998, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cda100f5-d850-4092-a834-6b2dd37c4b25" absoluteBounds="32.875, 2.75, 3.125, 1.7708968098958331">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΚΛΑΔΟΣ_ΑΝΕΡΓΟΙ_ΠΡΟΚΗΡΥΞΗ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c09c9bc3-ba87-43d0-84f8-4b36e1c85c9c" absoluteBounds="32.89, 3.21, 3.0949999999999998, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="986e9499-d758-4e4a-99d1-7a434a937ffd" absoluteBounds="32.875, 4.75, 3.125, 1.9631982421875">
+      <DataClassMoniker Name="/ThetisDataContext/ViewΑΙΤΗΣΕΙΣ_ΚΛΑΔΟΣ_ΑΝΕΡΓΟΙ_ΠΡΟΚ_ΙΕΚ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0b52191d-9722-440f-8a22-df6ba707a36e" absoluteBounds="32.89, 5.21, 3.0949999999999998, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

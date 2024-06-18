@@ -1,0 +1,81 @@
+﻿<Page x:Class="Thetis.AppPages.Admin.SearchAitiseis"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+      xmlns:my="clr-namespace:Thetis.Controls"
+      xmlns:nav="clr-namespace:Thetis.Shell.Navigation"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800" Background="Transparent"
+	  Title="Διαχείριση αιτήσεων">
+
+    
+    <Grid>
+                
+        <StackPanel Name="mainPanel" Orientation="Vertical" HorizontalAlignment="Center">
+            
+            <StackPanel Name="SelectionPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Label Content="Επιλογή προκήρυξης" Margin="4" FontSize="12" Foreground="Black"/>
+                <telerik:RadComboBox x:Name="cboProkirixiSelection" telerik:StyleManager.Theme="Windows8" Margin="4" Width="180"
+                 SelectedValuePath="ΠΡΟΚΗΡΥΞΗ_ΚΩΔ" DisplayMemberPath="ΠΡΟΚΗΡΥΞΗ_ΑΡ"
+                 ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+                <Label Content="Επιλογή IEK" Margin="4" FontSize="12" Foreground="Black"/>
+                <telerik:RadComboBox x:Name="cboiekSelection" telerik:StyleManager.Theme="Windows8" Margin="4" Width="180"
+                 SelectedValuePath="ΙΕΚ_ΚΩΔ" DisplayMemberPath="ΙΕΚ_ΟΝΟΜΑΣΙΑ" 
+                 ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+                <telerik:RadButton Name="btnView" Click="btnView_Click"  Content=" Προβολή " Margin="4" Padding="4" Width="80" 
+                 telerik:StyleManager.Theme="Windows8" Cursor="Hand" FontSize="12" />
+            </StackPanel>
+            
+            <StackPanel Name="cmdPanel"  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                        Margin="10">
+                <telerik:RadButton Content="Επαναφορά" Margin="0,10,5,0"   Name="btnReset" Click="btnReset_Click"  telerik:StyleManager.Theme="Windows8" Height="30" Width="76"></telerik:RadButton>
+                <telerik:RadButton Content="Ανανέωση" Margin="0,10,5,0"    Name="btnRefresh" Click="btnRefresh_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                <telerik:RadButton Content="Προσθήκη" Margin="0,10,5,0"    Name="btnAdd" Click="btnAdd_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                <telerik:RadButton Content="Διαγραφή" Margin="0,10,5,0"    Name="btnDelete" Click="btnDelete_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                <telerik:RadButton Content="Επεξεργασία" Margin="0,10,5,0" Name="btnEdit" Click="btnEdit_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                <telerik:RadButton Content="Αναίρεση" Margin="0,10,5,0"    Name="btnUndo" Click="btnUndo_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                <telerik:RadButton Content="Αποθήκευση" Margin="0,10,5,0"  Name="btnSave" Click="btnSave_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+            </StackPanel>
+
+            <telerik:RadGridView x:Name="dataGrid" CanUserFreezeColumns="False" AutoGenerateColumns="False" ShowGroupPanel="True"
+                                     CanUserInsertRows="True" CanUserDeleteRows="True" ShowInsertRow="True"
+                                     RowEditEnded="dataGrid_RowEditEnded" DataLoadMode="Asynchronous"
+                                     IsReadOnly="False" AlternationCount="2" Height="420" ShowColumnFooters="True" 
+                                     Margin="0,2,0,2" VerticalAlignment="Top" telerikControls:StyleManager.Theme="Windows8"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" GroupPanelBackground="#FF550D49">
+
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΙΕΚ_ΑΙΤΗΣΗΣ}" Header="Κωδ.ΙΕΚ" IsGroupable="True">
+                        <telerik:GridViewDataColumn.AggregateFunctions>
+                            <telerik:CountFunction Caption="Πλήθος: " />
+                        </telerik:GridViewDataColumn.AggregateFunctions>
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΚΩΔ_ΑΙΤΗΣΗ}" Header="Κωδ.Αίτησης" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΠΡΩΤΟΚΟΛΛΟ}" Header="Αρ.Πρωτ." IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΗΜΕΡΟΜΗΝΙΑ, StringFormat=dd/MM/yyyy}" Header="Ημ/νια Αίτησης" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΑΦΜ}" Header="Α.Φ.Μ." IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΚΛΑΔΟΣ}" Header="Κλάδος" IsGroupable="True" />
+                    <telerik:GridViewComboBoxColumn Name="cboEidikotis"  DataMemberBinding="{Binding ΕΙΔΙΚΟΤΗΤΑ}" Header="Κλάδος-Ειδικότητα"
+                     SelectedValueMemberPath="ΚΛΑΔΟΣ_ΚΩΔ" DisplayMemberPath="ΚΛΑΔΟΣ"/>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΒΑΘΜΟΣ_ΠΤΥΧΙΟΥ}" Header="Βαθ.Πτυχίου" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ}" Header="Μεταπτυχιακό" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΔΙΔΑΚΤΟΡΙΚΟ}" Header="Διδακτορικό" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΔΙΔΑΚΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Header="Μόρια Διδακτικής" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΠΑΓΓΕΛΜΑΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Header="Μόρια Επαγγελματικής" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΛΕΥΘΕΡΟ_ΕΠΑΓΓΕΛΜΑ}" Header="Μόρια Ελ.Επαγγέλματος" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΡΓΑΣΙΑ}" Header="Εργασία" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΑΠΟΚΛΕΙΣΜΟΣ}" Header="Αποκλεισμός" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΑΙΤΙΑ}" Header="Αιτία Αποκλεισμού" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΜΕΤΑΦΕΡΘΗΚΕ}" Header="Μεταφέρθηκε" IsGroupable="True" />
+                </telerik:RadGridView.Columns>
+
+
+            </telerik:RadGridView>
+
+        </StackPanel>
+    </Grid>
+</Page>

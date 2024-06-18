@@ -1,0 +1,159 @@
+﻿<Page x:Class="Thetis.AppPages.Moriodotisi.MoriaMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:igWindows="http://infragistics.com/Windows"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:my="clr-namespace:Thetis.Controls"
+      xmlns:nav="clr-namespace:Thetis.Shell.Navigation"
+      xmlns:local="clr-namespace:Thetis.Utilities"
+      xmlns:FrameNavigationWPF="clr-namespace:FrameNavigationWPF;assembly=FrameNavigationWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000" Title="Μοριοδότηση" Initialized="Page_Initialized" Loaded="Page_Loaded">
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="WhiteSmoke" Offset="0" />
+            <GradientStop Color="WhiteSmoke" Offset="1" />
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"></RowDefinition>
+            <RowDefinition Height="640*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <my:NavPage Grid.Row="0"/>
+        <TextBlock FontFamily="Segoe UI" FontSize="28" Foreground="Black" FontWeight="Normal" 
+                   TextAlignment="Center" Text="Σελίδα εργασιών μοριοποίησης"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="40"/>
+        <my:xClock HorizontalAlignment="Right" VerticalAlignment="Top" Width="60" Height="60" Background="#550D49"/>
+        <!-- Menu here in row 1, column 0 -->
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <Expander Background="WhiteSmoke"  BorderThickness="2" BorderBrush="White" HorizontalAlignment="Left" ExpandDirection="Right" Padding="4" IsExpanded="True">
+                <Expander.Header>
+                    <TextBlock Text="Εργασίες"
+                           FontSize="14"
+                           Foreground="#550D49"
+                           FontWeight="Bold">
+                  <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                  </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <StackPanel  Width="180">
+                    <Label x:Name ="task01" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Εκπαιδευτικοί" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task02" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Αιτήσεις" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task03" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Αναζήτηση αιτήσεων" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task04" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Μητρώο αιτήσεων" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task05" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Πίνακας Α" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task06" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Πίνακας Β" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task07" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Πίνακας Γ" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task08" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Πίνακας Δ" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task09" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Πολλαπλές Αιτήσεις" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+                    <Label x:Name ="task10" MouseEnter="menuTipShow" MouseLeave="menuTipHide" MouseDown="panelLabel_Click" Content="Πολ.Αιτήσεις Εκτύπωση" FontFamily="Segoe UI" FontSize="12" Foreground="Black" Margin="0,10" Cursor="Hand"/>
+
+
+
+                </StackPanel>
+            </Expander>
+
+            <Border BorderThickness="2" CornerRadius="0" Background="Transparent">
+                <telerik:RadTabControl x:Name="tabctrl" telerik:StyleManager.Theme="Windows8" HeaderBackground="#79256B">
+                    
+                    <local:ClosableTabItem Header="Αρχική" x:Name="tabItemExHome" FontSize="14"  >
+                        <StackPanel Width="550">
+                            <StackPanel DockPanel.Dock="Right" Height="189" Width="Auto" >
+                                <Canvas x:Name="StickyCanvas" Margin="30,10,0,0" Opacity="0.4">
+                                    <Canvas.RenderTransform>
+                                        <RotateTransform x:Name="AnimatedRotateTransform" CenterX="90" CenterY="18" Angle="0" />
+                                    </Canvas.RenderTransform>
+                                    <Canvas.Triggers>
+                                        <EventTrigger RoutedEvent="Canvas.MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="AnimatedRotateTransform" Storyboard.TargetProperty="Angle" To="30" Duration="0:0:0.5" FillBehavior="Stop"/>
+                                                    <DoubleAnimation Storyboard.TargetName="AnimatedRotateTransform" Storyboard.TargetProperty="Angle" To="14" Duration="0:0:0.5" FillBehavior="HoldEnd"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="(Opacity)" To="1" Duration="0:0:1.5" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="Canvas.MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="AnimatedRotateTransform" Storyboard.TargetProperty="Angle" To="0" Duration="0:0:0.75" FillBehavior="HoldEnd"/>
+                                                    <DoubleAnimation Storyboard.TargetProperty="(Opacity)" To="0.25" Duration="0:0:1.5" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Canvas.Triggers>
+                                    <Image Source="/Thetis;component/Shell/Images/Other/Sticky.png" Width="320" Height="302" Panel.ZIndex="99" />
+                                    <Grid Margin="70,35" Panel.ZIndex="100">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="200" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.RenderTransform>
+                                            <RotateTransform CenterX="150" CenterY="130" Angle="-14" />
+                                        </Grid.RenderTransform>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+                                            <Label Content="Συμβουλές" FontSize="12" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="5"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="1" Grid.Column="0" Width="200" Height="110">
+                                            <TextBlock Text="1 : Επιλέξτε εργασία από τη λίστα εργασιών." Foreground="Black" HorizontalAlignment="Left" FontSize="12" TextWrapping="Wrap" Width="190" Margin="10,0,10,0"/>
+                                            <TextBlock Text="2 : Κάθε εργασία ανοίγει σε ξεχωριστή καρτέλα." Foreground="Black" HorizontalAlignment="Left" FontSize="12" TextWrapping="Wrap" Width="180" Margin="10,0,10,0"/>
+                                            <TextBlock Text="3 : Απόκρυψη/Εμφάνιση της λίστας γίνεται με το βέλος στο άνω αριστερό άκρο της λίστας." Foreground="Black" HorizontalAlignment="Left" FontSize="12" TextWrapping="Wrap" Width="180" Margin="10,0,10,0"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Canvas>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </local:ClosableTabItem>
+
+                    <local:ClosableTabItem Header="Εκπαιδευτικοί" x:Name="tabItemExTask1" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="/AppPages/Trainers/Trainers.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    
+                    <local:ClosableTabItem Header="Αιτήσεις" x:Name="tabItemExTask2" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="/AppPages/Aitiseis/Teachers.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Αναζήτηση" x:Name="tabItemExTask3" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="Search.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Μητρώο αιτήσεων" x:Name="tabItemExTask4" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="/AppPages/Auxiliary/Teachers/AitisiPage.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Πίνακας Α" x:Name="tabItemExTask5" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="/AppPages/Pinakes/PinakasA.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Πίνακας Β" x:Name="tabItemExTask6" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="/AppPages/Pinakes/PinakasB.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Πίνακας Γ" x:Name="tabItemExTask7" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="/AppPages/Pinakes/PinakasC.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Πίνακας Δ" x:Name="tabItemExTask8" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="/AppPages/Pinakes/PinakasD.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Πολλαπλές Αιτήσεις" x:Name="tabItemExTask9" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="MultipleApplications.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                    <local:ClosableTabItem Header="Πολλαπλές Αιτήσεις Εκτύπωση" x:Name="tabItemExTask10" FontSize="14" Visibility="Collapsed">
+                        <Frame Source="/AppPages/Pinakes/MultipleAppsNomos.xaml"  ></Frame>
+                    </local:ClosableTabItem>
+                </telerik:RadTabControl>
+
+            </Border>
+        </DockPanel>
+        <my:menuTooltip x:Name="menutip" Grid.Row="1" HorizontalAlignment="Center" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>

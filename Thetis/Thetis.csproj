@@ -1,0 +1,1209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3BCD377E-9A8A-4010-811A-6567F816E871}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Thetis</RootNamespace>
+    <AssemblyName>Thetis</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+    <PublishUrl>http://172.30.3.168/Thetis/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Thetis</ProductName>
+    <PublisherName>OAED</PublisherName>
+    <WebPage>thetis.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6F23AEB944E6F5B149CBAB02941A4A7E77C117D1</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Thetis_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app_wpf.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Controls" />
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\..\..\..\..\CodePlex\SqlServerCompanion\SQLServerCompanion_WPF\Referenced_DLLS\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework.Royale">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReachFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\..\..\..\CodePlex\SqlServerCompanion\SQLServerCompanion_WPF\Referenced_DLLS\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.Chart.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Charting, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.Charting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataServices, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.DataServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Expressions, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.Expressions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Gauge, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.Gauge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.GridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.Input.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Controls.Navigation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Documents.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Documents.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\RadControls for WPF Q3 2013\Binaries\WPF40\Telerik.Windows.Documents.Flow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WPFMessageBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WPFMessageBox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=8.0.14.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=8.0.14.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>True</Private>
+      <HintPath>E:\Program Files (x86)\Telerik\Reporting Q1 2014\bin\Telerik.Reporting.XpsRendering.dll</HintPath>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=8.0.14.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>True</Private>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AppPages\Admin\Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Admin\SearchAitiseis.xaml.cs">
+      <DependentUpon>SearchAitiseis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Admin\SearchApokleismoi.xaml.cs">
+      <DependentUpon>SearchApokleismoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Admin\SearchEidikotites.xaml.cs">
+      <DependentUpon>SearchEidikotites.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Admin\SearchKladoi.xaml.cs">
+      <DependentUpon>SearchKladoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Admin\SearchTrainers.xaml.cs">
+      <DependentUpon>SearchTrainers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\AitisiForm.xaml.cs">
+      <DependentUpon>AitisiForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\AitisiFormRO.xaml.cs">
+      <DependentUpon>AitisiFormRO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\AitisiInfo.xaml.cs">
+      <DependentUpon>AitisiInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\EepagelmaErrorStyle.cs" />
+    <Compile Include="AppPages\Aitiseis\EpagelmatikiErrorStyle.cs" />
+    <Compile Include="AppPages\Aitiseis\DidaktikiErrorStyle.cs" />
+    <Compile Include="AppPages\Aitiseis\Experience.xaml.cs">
+      <DependentUpon>Experience.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\Freelance.xaml.cs">
+      <DependentUpon>Freelance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\OtherIek.xaml.cs">
+      <DependentUpon>OtherIek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\Professional.xaml.cs">
+      <DependentUpon>Professional.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\Teaching.xaml.cs">
+      <DependentUpon>Teaching.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\TeachingInfo.xaml.cs">
+      <DependentUpon>TeachingInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Apokleismos.xaml.cs">
+      <DependentUpon>Apokleismos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Auxiliary.xaml.cs">
+      <DependentUpon>Auxiliary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Eidikotites.xaml.cs">
+      <DependentUpon>Eidikotites.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Eisodima.xaml.cs">
+      <DependentUpon>Eisodima.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\iek\iek.xaml.cs">
+      <DependentUpon>iek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\iek\iekInfoCard.xaml.cs">
+      <DependentUpon>iekInfoCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Kladoi\EidikotitaGrid.xaml.cs">
+      <DependentUpon>EidikotitaGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Kladoi\Klados.xaml.cs">
+      <DependentUpon>Klados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Perifereies.xaml.cs">
+      <DependentUpon>Perifereies.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\SchoolYears.xaml.cs">
+      <DependentUpon>SchoolYears.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Spoudes.xaml.cs">
+      <DependentUpon>Spoudes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Teachers\AitisiDetail.xaml.cs">
+      <DependentUpon>AitisiDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Teachers\AitisiPage.xaml.cs">
+      <DependentUpon>AitisiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Teachers\Teacher.xaml.cs">
+      <DependentUpon>Teacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Auxiliary\Teachers\TeacherCard.xaml.cs">
+      <DependentUpon>TeacherCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Blank.xaml.cs">
+      <DependentUpon>Blank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Moriodotisi\MoriaMenu.xaml.cs">
+      <DependentUpon>MoriaMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Moriodotisi\MultipleApplications.xaml.cs">
+      <DependentUpon>MultipleApplications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Moriodotisi\Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\TeacherData.xaml.cs">
+      <DependentUpon>TeacherData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\Blank.xaml.cs">
+      <DependentUpon>Blank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\ChartViewModel\ChartCombineModeExtended.cs" />
+    <Compile Include="AppPages\Statistics\ChartViewModel\ChartSeriesSelector.cs" />
+    <Compile Include="AppPages\Statistics\ChartViewModel\GenderData.cs" />
+    <Compile Include="AppPages\Statistics\ChartViewModel\GenderViewModel.cs" />
+    <Compile Include="AppPages\Statistics\ChartViewModel\OrientationBehavior.cs" />
+    <Compile Include="AppPages\Statistics\ChartViewModel\WorkData.cs" />
+    <Compile Include="AppPages\Statistics\ChartViewModel\WorkViewModel.cs" />
+    <Compile Include="AppPages\Statistics\Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\TeacherApokleismosCount.xaml.cs">
+      <DependentUpon>TeacherApokleismosCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\TeacherEnstasiCount.xaml.cs">
+      <DependentUpon>TeacherEnstasiCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\TeacherGenderCount.xaml.cs">
+      <DependentUpon>TeacherGenderCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\TeacherKladosCount.xaml.cs">
+      <DependentUpon>TeacherKladosCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\TeacherQualificationsPE.xaml.cs">
+      <DependentUpon>TeacherQualificationsPE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\TeacherWorkCount.xaml.cs">
+      <DependentUpon>TeacherWorkCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\TeacherWorkTypeCount.xaml.cs">
+      <DependentUpon>TeacherWorkTypeCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Statistics\TestPie.xaml.cs">
+      <DependentUpon>TestPie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Tests\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\AitisisCount.xaml.cs">
+      <DependentUpon>AitisisCount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\Apokleismoi.xaml.cs">
+      <DependentUpon>Apokleismoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\Eidikotites.xaml.cs">
+      <DependentUpon>Eidikotites.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\EnstasiStats.xaml.cs">
+      <DependentUpon>EnstasiStats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\IekData.xaml.cs">
+      <DependentUpon>IekData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\MultipleAppsNomos.xaml.cs">
+      <DependentUpon>MultipleAppsNomos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\PinakasA.xaml.cs">
+      <DependentUpon>PinakasA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\PinakasAweb.xaml.cs">
+      <DependentUpon>PinakasAweb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\PinakasB.xaml.cs">
+      <DependentUpon>PinakasB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\PinakasBweb.xaml.cs">
+      <DependentUpon>PinakasBweb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\PinakasC.xaml.cs">
+      <DependentUpon>PinakasC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\PinakasCweb.xaml.cs">
+      <DependentUpon>PinakasCweb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\PinakasD.xaml.cs">
+      <DependentUpon>PinakasD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\PinakasDweb.xaml.cs">
+      <DependentUpon>PinakasDweb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Pinakes\Pinakes.xaml.cs">
+      <DependentUpon>Pinakes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Prokirixis\Prokirixi.xaml.cs">
+      <DependentUpon>Prokirixi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\TeacherDetail.xaml.cs">
+      <DependentUpon>TeacherDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\Teachers.xaml.cs">
+      <DependentUpon>Teachers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Aitiseis\TeacherViewModel.cs" />
+    <Compile Include="AppPages\Trainers\TrainerForm.xaml.cs">
+      <DependentUpon>TrainerForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Trainers\TrainerFormRO.xaml.cs">
+      <DependentUpon>TrainerFormRO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Trainers\Trainers.xaml.cs">
+      <DependentUpon>Trainers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\menuTooltip.xaml.cs">
+      <DependentUpon>menuTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NavPage.xaml.cs">
+      <DependentUpon>NavPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RadMsgWindow.xaml.cs">
+      <DependentUpon>RadMsgWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TileTimeDate.xaml.cs">
+      <DependentUpon>TileTimeDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TileUser.xaml.cs">
+      <DependentUpon>TileUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\W8Message.xaml.cs">
+      <DependentUpon>W8Message.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\AitisiModel.cs" />
+    <Compile Include="DataAccess\CommitModel.cs" />
+    <Compile Include="DataAccess\MoriaModel.cs" />
+    <Compile Include="DataAccess\Primus.cs" />
+    <Compile Include="Localization\RadControlsResources.gr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadControlsResources.gr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Thetis.cs">
+      <DependentUpon>Thetis.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Thetis.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Thetis.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AitiseisCount.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\AitiseisCount.Designer.cs">
+      <DependentUpon>AitiseisCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Apokleismoi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Apokleismoi.Designer.cs">
+      <DependentUpon>Apokleismoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Eidikotites.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Eidikotites.Designer.cs">
+      <DependentUpon>Eidikotites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Enstaseis.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Enstaseis.Designer.cs">
+      <DependentUpon>Enstaseis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IekList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IekList.Designer.cs">
+      <DependentUpon>IekList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MultipleAppsNomos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MultipleAppsNomos.Designer.cs">
+      <DependentUpon>MultipleAppsNomos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PinakasA.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PinakasA.Designer.cs">
+      <DependentUpon>PinakasA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PinakasAweb.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PinakasAweb.Designer.cs">
+      <DependentUpon>PinakasAweb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PinakasB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PinakasB.Designer.cs">
+      <DependentUpon>PinakasB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PinakasBweb.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PinakasBweb.Designer.cs">
+      <DependentUpon>PinakasBweb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PinakasC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PinakasC.Designer.cs">
+      <DependentUpon>PinakasC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PinakasCweb.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PinakasCweb.Designer.cs">
+      <DependentUpon>PinakasCweb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PinakasD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PinakasD.Designer.cs">
+      <DependentUpon>PinakasD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PinakasDweb.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PinakasDweb.Designer.cs">
+      <DependentUpon>PinakasDweb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TeachersIEK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TeachersIEK.Designer.cs">
+      <DependentUpon>TeachersIEK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Users.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Telerik.ReportViewer.WPF.TextResources.el.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Telerik.ReportViewer.WPF.TextResources.el.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DatePickerWatermark.cs" />
+    <Compile Include="Utilities\DateUtilities.cs" />
+    <Compile Include="Utilities\GlobalText.cs" />
+    <Compile Include="Controls\currentDate.xaml.cs">
+      <DependentUpon>currentDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GlassPane.xaml.cs">
+      <DependentUpon>GlassPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LocalizationRoot.cs" />
+    <Compile Include="Controls\MessagePopup.xaml.cs">
+      <DependentUpon>MessagePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\Navigation\Navigator.xaml.cs">
+      <DependentUpon>Navigator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\xClock.xaml.cs">
+      <DependentUpon>xClock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ProgressBarThread.cs" />
+    <Compile Include="Utilities\RoutedEventHelper.cs" />
+    <Compile Include="Utilities\TabItemHelper.cs" />
+    <Compile Include="Utilities\UserFunctions.cs" />
+    <Compile Include="ViewModel\TeacherViewModel.cs" />
+    <Page Include="AppPages\Admin\Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Admin\SearchAitiseis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppPages\Admin\SearchApokleismoi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Admin\SearchEidikotites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Admin\SearchKladoi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Admin\SearchTrainers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Aitiseis\AitisiForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppPages\Aitiseis\AitisiFormRO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppPages\Aitiseis\AitisiInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Aitiseis\Experience.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Aitiseis\Freelance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Aitiseis\OtherIek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Aitiseis\Professional.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Aitiseis\Teaching.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Aitiseis\TeachingInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Apokleismos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Auxiliary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Eidikotites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Eisodima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\iek\iek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\iek\iekInfoCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Kladoi\EidikotitaGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Kladoi\Klados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Perifereies.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\SchoolYears.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Spoudes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Teachers\AitisiDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Teachers\AitisiPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Teachers\Teacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Auxiliary\Teachers\TeacherCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Blank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Moriodotisi\MoriaMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Moriodotisi\MultipleApplications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Moriodotisi\Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\TeacherData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\Blank.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppPages\Statistics\Statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\TeacherApokleismosCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\TeacherEnstasiCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\TeacherGenderCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\TeacherKladosCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\TeacherQualificationsPE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\TeacherWorkCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\TeacherWorkTypeCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Statistics\TestPie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Tests\Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\AitisisCount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\Apokleismoi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\Eidikotites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\EnstasiStats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\IekData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\MultipleAppsNomos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\PinakasA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\PinakasAweb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\PinakasB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\PinakasBweb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\PinakasC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\PinakasCweb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\PinakasD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\PinakasDweb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Pinakes\Pinakes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Prokirixis\Prokirixi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppPages\Aitiseis\TeacherDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppPages\Aitiseis\Teachers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Trainers\TrainerForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppPages\Trainers\TrainerFormRO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppPages\Trainers\Trainers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CircularProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\currentDate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GlassPane.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\menuTooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MessagePopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\NavPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RadMsgWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TileTimeDate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TileUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\W8Message.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Shell\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Shell\Navigation\Navigator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\xClock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\Resources\ProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\Resources\Shared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\Resources\ToolTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Utilities\Loading.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Reports\AitiseisCount.resx">
+      <DependentUpon>AitiseisCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Apokleismoi.resx">
+      <DependentUpon>Apokleismoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Eidikotites.resx">
+      <DependentUpon>Eidikotites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Enstaseis.resx">
+      <DependentUpon>Enstaseis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IekList.resx">
+      <DependentUpon>IekList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MultipleAppsNomos.resx">
+      <DependentUpon>MultipleAppsNomos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PinakasA.resx">
+      <DependentUpon>PinakasA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PinakasAweb.resx">
+      <DependentUpon>PinakasAweb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PinakasB.resx">
+      <DependentUpon>PinakasB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PinakasBweb.resx">
+      <DependentUpon>PinakasBweb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PinakasC.resx">
+      <DependentUpon>PinakasC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PinakasCweb.resx">
+      <DependentUpon>PinakasCweb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PinakasD.resx">
+      <DependentUpon>PinakasD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PinakasDweb.resx">
+      <DependentUpon>PinakasDweb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TeachersIEK.resx">
+      <DependentUpon>TeachersIEK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telerik.ReportViewer.WPF.TextResources.el.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Telerik.ReportViewer.WPF.TextResources.el.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Model\Thetis.dbml.layout">
+      <DependentUpon>Thetis.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="Localization\RadControlsResources.gr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RadControlsResources.gr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Model\Thetis.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Thetis.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Thetis_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="app_wpf.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Walls\wall02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Walls\blue01.jpg" />
+    <Resource Include="Shell\Images\Walls\blue02.jpg" />
+    <Resource Include="Shell\Images\Walls\blue03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppPages\Admin\Images\admin01.png" />
+    <Resource Include="AppPages\Admin\Images\admin02.png" />
+    <Resource Include="AppPages\Admin\Images\admin03.png" />
+    <Resource Include="AppPages\Admin\Images\admin04.png" />
+    <Resource Include="AppPages\Admin\Images\admin05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppPages\Admin\Images\MSOFFICE.png" />
+    <Resource Include="AppPages\Admin\Images\mssql.png" />
+    <Resource Include="AppPages\Admin\Images\mysql.png" />
+    <Resource Include="AppPages\Admin\Images\sql_run.png" />
+    <Resource Include="AppPages\Admin\Images\sql_clear.png" />
+    <Resource Include="AppPages\Admin\Images\sql_open.png" />
+    <Resource Include="AppPages\Admin\Images\sql_options.png" />
+    <Resource Include="AppPages\Admin\Images\sql_query.png" />
+    <Resource Include="AppPages\Admin\Images\sql_tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Walls\wall01.png" />
+    <Resource Include="Shell\Images\thetis.ico" />
+    <Resource Include="Shell\Images\Other\error_frame.png" />
+    <Resource Include="Shell\Images\Other\person_female.png" />
+    <Resource Include="Shell\Images\Other\person_male.png" />
+    <Resource Include="Shell\Images\Other\person_unknown.png" />
+    <Resource Include="Shell\Images\Other\oaed_logo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Metro\Analysis.png" />
+    <Resource Include="Shell\Images\Metro\Anatheseis.png" />
+    <Resource Include="Shell\Images\Metro\Anatheseis2.png" />
+    <Resource Include="Shell\Images\Metro\Arrows-Left-round-icon.png" />
+    <Resource Include="Shell\Images\Metro\Arrows-Right-round-icon.png" />
+    <Resource Include="Shell\Images\Metro\ControlPanel.png" />
+    <Resource Include="Shell\Images\Metro\Document2.png" />
+    <Resource Include="Shell\Images\Metro\Editing-Delete-icon.png" />
+    <Resource Include="Shell\Images\Metro\Editing-Edit-icon.png" />
+    <Resource Include="Shell\Images\Metro\Exit.png" />
+    <Resource Include="Shell\Images\Metro\filter-del.png" />
+    <Resource Include="Shell\Images\Metro\filter-set.png" />
+    <Resource Include="Shell\Images\Metro\Home-icon.png" />
+    <Resource Include="Shell\Images\Metro\Home.png" />
+    <Resource Include="Shell\Images\Metro\icon-error.png" />
+    <Resource Include="Shell\Images\Metro\icon-ok.png" />
+    <Resource Include="Shell\Images\Metro\Lessons.png" />
+    <Resource Include="Shell\Images\Metro\People.png" />
+    <Resource Include="Shell\Images\Metro\Security-Key-icon.png" />
+    <Resource Include="Shell\Images\Metro\System-Delete.ico" />
+    <Resource Include="Shell\Images\Metro\System-Save-icon.png" />
+    <Resource Include="Shell\Images\Metro\user_metro.png" />
+    <Resource Include="Shell\Images\Metro\save.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Metro\windowsWhiteLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Walls\wall03.jpg" />
+    <Resource Include="Shell\Images\Walls\wall04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Metro\printer-text.png" />
+    <Resource Include="Shell\Images\Metro\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Other\Sticky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Walls\wall06.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Walls\wall05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Metro\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Walls\wall21.jpg" />
+    <Resource Include="Shell\Images\Walls\wall22.jpg" />
+    <Resource Include="Shell\Images\Walls\wall23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Walls\wall20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WpfFrameNavigation\WpfFrameNavigation\WpfFrameNavigation.csproj">
+      <Project>{6a067aa9-a4f0-4f98-bd49-75796743d204}</Project>
+      <Name>WpfFrameNavigation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shell\Images\Other\info_small.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

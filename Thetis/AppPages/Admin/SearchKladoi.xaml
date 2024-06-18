@@ -1,0 +1,61 @@
+﻿<Page x:Class="Thetis.AppPages.Admin.SearchKladoi"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+      xmlns:local="clr-namespace:Thetis.AppPages.Auxiliary.Kladoi"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800" Background="Transparent"
+	  Title="Κλάδοι-Ειδικότητες">
+
+    <Grid>
+
+        <Border Background="Transparent" BorderBrush="DarkGray" BorderThickness="2" CornerRadius="0">
+            <StackPanel Orientation="Vertical">
+
+                <StackPanel Name="cmdPanel"  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <telerik:RadButton Content="Προσθήκη" Margin="0,10,5,0"    Name="btnAdd" Click="btnAdd_Click" telerikControls:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                    <telerik:RadButton Content="Διαγραφή" Margin="0,10,5,0"    Name="btnDelete" Click="btnDelete_Click" telerikControls:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                    <telerik:RadButton Content="Επεξεργασία" Margin="0,10,5,0" Name="btnEdit" Click="btnEdit_Click" telerikControls:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                    <telerik:RadButton Content="Αναίρεση" Margin="0,10,5,0"    Name="btnUndo" Click="btnUndo_Click" telerikControls:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                    <telerik:RadButton Content="Αποθήκευση" Margin="0,10,5,0"  Name="btnSave" Click="btnSave_Click" telerikControls:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                </StackPanel>
+                <TextBlock Text=" Κλάδοι και Ειδικότητες" Padding="4" FontFamily="Segoe UI" FontSize="16" FontWeight="Normal" Height="31" />
+
+                <telerik:RadGridView x:Name="parentGrid" telerikControls:StyleManager.Theme="Windows8Touch" Height="400"
+                                     CanUserInsertRows="True" CanUserDeleteRows="False" SelectionMode="Extended"
+                                     RowEditEnded="parentGrid_RowEditEnded" AutoGenerateColumns="False" ShowGroupPanel="False" 
+                                     AlternationCount="2" CellValidating="parentGrid_CellValidating" >
+
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΚΛΑΔΟΣ1}" Header="Κλάδος" Name="ΚΛΑΔΟΣ" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΚΛΑΔΟΣ_ΩΡΕΣ}" Header="Max. Ώρες/εβδ" UniqueName="ΚΛΑΔΟΣ_ΩΡΕΣ" IsGroupable="False" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΚΩΔ_ΚΛΑΔΟΣ}" Header="Κωδικός" IsGroupable="False" />
+                    </telerik:RadGridView.Columns>
+
+                    <telerik:RadGridView.ChildTableDefinitions>
+                        <telerik:GridViewTableDefinition />
+                    </telerik:RadGridView.ChildTableDefinitions>
+
+                    <telerik:RadGridView.HierarchyChildTemplate>
+                        <DataTemplate>
+
+                            <telerik:RadGridView x:Name="childGrid" CanUserFreezeColumns="False" AutoGenerateColumns="False" ShowGroupPanel="False"
+                                                 ItemsSource="{Binding ΕΙΔΙΚΟΤΗΤΑs}" CanUserInsertRows="False" CanUserDeleteRows="False"
+                                                 IsReadOnly="True" AlternationCount="2" Height="200" telerikControls:StyleManager.Theme="Windows8Touch">
+                                <telerik:RadGridView.Columns>
+                
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΚΛΑΔΟΣ}" Header="Ειδικότητα" IsGroupable="False" />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+
+                        </DataTemplate>
+                    </telerik:RadGridView.HierarchyChildTemplate>
+                </telerik:RadGridView>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

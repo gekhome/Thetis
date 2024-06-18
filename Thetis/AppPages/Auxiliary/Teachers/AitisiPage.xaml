@@ -1,0 +1,197 @@
+﻿<Page x:Class="Thetis.AppPages.Auxiliary.Teachers.AitisiPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:my="clr-namespace:Thetis.Controls"
+      xmlns:local="clr-namespace:Thetis.AppPages.Aitiseis"
+      xmlns:nav="clr-namespace:Thetis.Shell.Navigation"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+      mc:Ignorable="d"
+      d:DesignHeight="600" d:DesignWidth="1000"
+	Title="Μητρώο Αιτήσεων">
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF191937" Offset="0" />
+            <GradientStop Color="#FF253C74" Offset="1" />
+        </LinearGradientBrush>
+    </Page.Background>
+    
+    <Grid>
+        <Grid.Resources>
+            <LinearGradientBrush x:Key="OfficeBlackFrame"
+                    EndPoint="0.491356224416577,0.974451988955925"
+                    StartPoint="0.777113682471078,-0.027352265088688">
+                <GradientStop Color="#FF7D7D7D" Offset="0.032501" />
+                <GradientStop Color="#FF4D4D4D" Offset="0.036112000000000033" />
+                <GradientStop Color="#FF656565" Offset="0.065002" />
+                <GradientStop Color="#FF454545" Offset="0.068613000000000035" />
+                <GradientStop Color="#FF353535" Offset="0.72841" />
+                <GradientStop Color="#FF050505" Offset="0.987361" />
+                <GradientStop Color="#FF9F9F9F" Offset="0.54500001668930054" />
+                <GradientStop Color="#FF454545" Offset="0.381" />
+                <GradientStop Color="#FF1C1C1C" Offset="0.66" />
+            </LinearGradientBrush>
+            <DataTemplate x:Key="TeacherDetailsTemplate">
+                <local:TeacherDetail />
+            </DataTemplate>
+        </Grid.Resources>
+
+        <DockPanel LastChildFill="True" Background="White">
+
+            <Expander Background="White" BorderThickness="2" BorderBrush="White" HorizontalAlignment="Left" ExpandDirection="Right" Padding="4" IsExpanded="True">
+                <Expander.Header>
+                    <TextBlock Text="Εκπαιδευτικοί"
+                           FontSize="14"
+                           Foreground="#550D49"
+                           FontWeight="Bold">
+                  <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                  </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="2,2" HorizontalAlignment="Right" >
+                        <Label Content="Εύρεση..." Foreground="Black"/>
+                        <TextBox Width="240" Height="22"  Background="White" Name="txtSearch" KeyDown="txtSearch_KeyDown" ToolTip="Εύρεση με Επώνυμο ή ΑΦΜ" FontSize="12"/>
+                        <Button Name="btnFilteOn" Click="btnFilterOn_Click"  Margin="4,0,0,0" Cursor="Hand" HorizontalAlignment="Right" ToolTip="Φίλτρο" >
+                            <Image Source="/Thetis;component/Shell/Images/Metro/filter-set.png" Width="20" Height="20" />
+                        </Button>
+                        <Button Name="btnFilterOff" Click="btnFilterOff_Click"  Margin="2,0,0,0" Cursor="Hand" HorizontalAlignment="Right" ToolTip="Διαγραφή φίλτρου">
+                            <Image Source="/Thetis;component/Shell/Images/Metro/filter-del.png" Width="20" Height="20"/>
+                        </Button>
+                    </StackPanel>
+                    <telerik:RadGridView x:Name="teacherGrid" telerikControls:StyleManager.Theme="Windows8" Height="500" MinWidth="260" IsReadOnly="True"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible"                                     
+                                     AutoGenerateColumns="False" ShowGroupPanel="False" AlternationCount="2"  
+                                     SelectionChanged="teacherGrid_SelectionChanged" SelectionUnit="FullRow" 
+                                     RowDetailsVisibilityMode="Collapsed" Loaded="teacherGrid_Loaded" 
+                                     RowDetailsVisibilityChanged="teacherGrid_RowDetailsVisibilityChanged" 
+                                     RowDetailsTemplate="{StaticResource TeacherDetailsTemplate}"
+                                     >
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewToggleRowDetailsColumn />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΑΦΜ}" Header="Α.Φ.Μ." UniqueName="ΑΦΜ" IsReadOnly="False" />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΕΠΩΝΥΜΟ}" Header="Επώνυμο" UniqueName="ΕΠΩΝΥΜΟ" IsReadOnly="False" />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΟΝΟΜΑ}" Header="Όνομα" UniqueName="ΟΝΟΜΑ" IsReadOnly="False"/>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+
+                </StackPanel>
+            </Expander>
+            <Border BorderBrush="White"  BorderThickness="2" CornerRadius="0" Background="Transparent" MinHeight="570" Margin="4,0,4,0">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="2,10,0,10">
+                        <TextBlock Text="Επιλεγμένος εκπαιδευτικός: " Foreground="White" FontSize="14"></TextBlock>
+                        <TextBlock Name ="txtTeacherInfo" Foreground="White" FontSize="14"></TextBlock>
+                    </StackPanel>
+                    <telerik:RadGridView x:Name="aitisiGrid" CanUserFreezeColumns="False" AutoGenerateColumns="False" ShowGroupPanel="True"
+                                     CanUserInsertRows="False" CanUserDeleteRows="False" MinHeight="120" ShowInsertRow="False" SelectionChanged="aitisiGrid_SelectionChanged"  
+                                     IsReadOnly="True" AlternationCount="2" Height="140" ItemsSource="{Binding AitisiCollection}" 
+                                     Margin="0,2,0,2" VerticalAlignment="Top" telerikControls:StyleManager.Theme="Windows8" GroupPanelBackground="#FF550D49">
+
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewComboBoxColumn Name="cboprok" DataMemberBinding="{Binding ΠΡΟΚΗΡΥΞΗ}" Header="Προκήρυξη"
+                                                        UniqueName="cboprok" SelectedValueMemberPath="ΠΡΟΚΗΡΥΞΗ_ΚΩΔ" DisplayMemberPath="ΠΡΟΚΗΡΥΞΗ_ΑΡ"/>
+                            <telerik:GridViewComboBoxColumn Name="cboiek" DataMemberBinding="{Binding ΙΕΚ_ΑΙΤΗΣΗΣ}" Header="ΙΕΚ Αίτησης"
+                                                        UniqueName="cboiek" SelectedValueMemberPath="ΙΕΚ_ΚΩΔ" DisplayMemberPath="ΙΕΚ_ΟΝΟΜΑΣΙΑ"/>
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΠΡΩΤΟΚΟΛΛΟ}" Header="Αρ.Πρωτ." />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΗΜΕΡΟΜΗΝΙΑ}" Header="Ημερομηνία" DataFormatString="{} {0:dd/MM/yyyy}"/>
+                            <telerik:GridViewComboBoxColumn Name="cboeidikotitita"  DataMemberBinding="{Binding ΕΙΔΙΚΟΤΗΤΑ}" Header="Κλάδος-Ειδικότητα"
+                                                        UniqueName="cboeidikotita" SelectedValueMemberPath="ΚΛΑΔΟΣ_ΚΩΔ" DisplayMemberPath="ΚΛΑΔΟΣ"/>
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΜΟΡΙΑ}" Header="Μόρια" />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΒΑΘΜΟΣ_ΠΤΥΧΙΟΥ}" Header="Β.Πτ." />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ}" Header="Μεταπτ." />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΔΙΔΑΚΤΟΡΙΚΟ}" Header="Διδακτ." />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΠΑΙΔΑΓΩΓΙΚΟ}" Header="Παιδαγ." />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΔΙΔΑΚΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Header="Μόρια διδ." />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΠΑΓΓΕΛΜΑΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Header="Μόρια επαγ." />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΛΕΥΘΕΡΟ_ΕΠΑΓΓΕΛΜΑ}" Header="Μόρια ελ.επ." />
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding ΑΝΕΡΓΟΣ_12}" Header="Άνεργος" />
+                            
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                    <telerik:RadTabControl Name="tabctrl" Background="#550D49" HeaderBackground="#FF550D49">
+                    	<telerikControls:StyleManager.Theme>
+                    		<telerikControls:Windows8Theme/>
+                    	</telerikControls:StyleManager.Theme>
+                        <telerik:RadTabItem Header="Διδακτική" Name="tabItemExTask1" FontSize="12" Visibility="Visible">
+                            <telerik:RadGridView x:Name="teachGrid" telerik:StyleManager.Theme="Windows8" Height="300"
+                                     CanUserInsertRows="False" CanUserDeleteRows="False" SelectionMode="Extended" IsReadOnly="True" 
+                                     AutoGenerateColumns="False" FontSize="12" DataLoadMode="Asynchronous" GroupPanelBackground="#FF550D49" 
+                                     ShowGroupPanel="False" AlternationCount="2" ShowInsertRow="False">
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewComboBoxColumn Name="cboSchoolYear"  DataMemberBinding="{Binding ΣΧΟΛΙΚΟ_ΕΤΟΣ}" Header="Σχολικό Έτος"
+                                                        SelectedValueMemberPath="ΣΧ_ΕΤΟΣ_ΚΩΔ" DisplayMemberPath="ΣΧ_ΕΤΟΣ"/>
+                                    <telerik:GridViewDataColumn Name="dcStartDate" DataMemberBinding="{Binding Path=ΕΝΑΡΞΗ, StringFormat=dd/MM/yyyy}" Header="Από" />
+                                    <telerik:GridViewDataColumn Name="dcFinalDate" DataMemberBinding="{Binding Path=ΛΗΞΗ,StringFormat=dd/MM/yyyy}" Header="Έως" />
+                                    <telerik:GridViewComboBoxColumn Name="cboErgasia" DataMemberBinding="{Binding ΕΡΓΑΣΙΑ}" Header="Εργασία"
+                                                        SelectedValueMemberPath="ΕΡΓΑΣΙΑ_ΚΩΔ" DisplayMemberPath="ΕΡΓΑΣΙΑ"/>
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΩΡΕΣ_ΕΒΔ}" Header="Ώρες/Εβδ" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΩΡΕΣ_ΣΥΝ}" Header="Ώρες Συν." />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΠΕΡΙΓΡΑΦΗ}" Header="Περιγραφή-Συνημμένο" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΣΥΝ_ΩΡΕΣ}" Header="Σύνολο" />
+                                </telerik:RadGridView.Columns>
+
+                            </telerik:RadGridView>
+
+                        </telerik:RadTabItem>
+                        <telerik:RadTabItem Header="Επαγγελματική" Name="tabItemExTask2" FontSize="12" Visibility="Visible">
+                            <telerik:RadGridView x:Name="profGrid" telerik:StyleManager.Theme="Office_Silver" Height="300"
+                                     CanUserInsertRows="False" CanUserDeleteRows="False" SelectionMode="Extended" FontSize="12" 
+                                     AutoGenerateColumns="False" IsReadOnly="True" DataLoadMode="Asynchronous"   
+                                     ShowGroupPanel="False" AlternationCount="2" ShowInsertRow="False">
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Name="txtENARXI" DataMemberBinding="{Binding Path=ΕΝΑΡΞΗ, StringFormat=dd/MM/yyyy}" Header="Από" />
+                                    <telerik:GridViewDataColumn Name="txtLIXI" DataMemberBinding="{Binding Path=ΛΗΞΗ,StringFormat=dd/MM/yyyy}" Header="Έως" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΠΕΡΙΓΡΑΦΗ}" Header="Περιγραφή-Συνημμένο" />
+                                    <telerik:GridViewDataColumn Name="txtDays" DataMemberBinding="{Binding Path=ΗΜΕΡΕΣ}" Header="Ημέρες" />
+                                </telerik:RadGridView.Columns>
+
+                            </telerik:RadGridView>
+
+                        </telerik:RadTabItem>
+                        <telerik:RadTabItem Header="Ελ. Επάγγελμα" Name="tabItemExTask3" FontSize="12" Visibility="Visible">
+                            <telerik:RadGridView x:Name="freeGrid" telerikControls:StyleManager.Theme="Windows8" Height="300"
+                                     CanUserInsertRows="False" CanUserDeleteRows="False" SelectionMode="Extended" IsReadOnly="True" 
+                                     AutoGenerateColumns="False" FontSize="12" DataLoadMode="Asynchronous"  
+                                     ShowGroupPanel="False" AlternationCount="2" ShowInsertRow="False">
+                                <telerik:RadGridView.Columns>
+
+                                    <telerik:GridViewComboBoxColumn Name="cboOikEtos"  DataMemberBinding="{Binding ΟΙΚ_ΕΤΟΣ}" Header="Οικ. Έτος"
+                                                        SelectedValueMemberPath="ΟΙΚ_ΕΤΟΣ" DisplayMemberPath="ΟΙΚ_ΕΤΟΣ"/>
+                                    <telerik:GridViewDataColumn Name="txtYearOfUse"  DataMemberBinding="{Binding Path=ΕΤΟΣ_ΧΡΗΣΗ}" Header="Έτος χρήσης"  />
+                                    <telerik:GridViewDataColumn Name="txtNomisma" DataMemberBinding="{Binding Path=ΝΟΜΙΣΜΑ}" Header="Νόμισμα" />
+                                    <telerik:GridViewDataColumn Name="txtIncome" DataMemberBinding="{Binding Path=ΕΙΣΟΔΗΜΑ}" Header="Εισόδημα" />
+                                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΠΕΡΙΓΡΑΦΗ}" Header="Περιγραφή-Συνημμένο" />
+                                    <telerik:GridViewDataColumn Name="txtFreelanceMoria" DataMemberBinding="{Binding Path=ΕΕ_ΜΟΡΙΑ}" Header="Μόρια" IsReadOnly="True" />
+
+                                </telerik:RadGridView.Columns>
+
+                            </telerik:RadGridView>
+
+                        </telerik:RadTabItem>
+                        <telerik:RadTabItem Header="ΙΕΚ Αίτησης" Name="tabItemExTask4" FontSize="12" Visibility="Visible">
+                            <telerik:RadGridView x:Name="iekGrid" telerikControls:StyleManager.Theme="Office_Silver" Height="300"
+                                     CanUserInsertRows="False" CanUserDeleteRows="False" SelectionMode="Extended" 
+                                     AutoGenerateColumns="False" FontSize="12" IsReadOnly="True" 
+                                     ShowGroupPanel="False" AlternationCount="2" ShowInsertRow="False" >
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewComboBoxColumn Name="cboIek"  DataMemberBinding="{Binding ΚΩΔ_ΙΕΚ}" Header="Ι.Ε.Κ."
+                                                        SelectedValueMemberPath="ΙΕΚ_ΚΩΔ" DisplayMemberPath="ΙΕΚ_ΟΝΟΜΑΣΙΑ"/>
+                                </telerik:RadGridView.Columns>
+
+                            </telerik:RadGridView>
+
+                        </telerik:RadTabItem>
+                        
+                    </telerik:RadTabControl>
+
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Grid>
+</Page>

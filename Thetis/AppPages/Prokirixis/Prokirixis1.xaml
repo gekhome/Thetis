@@ -1,0 +1,165 @@
+﻿<Page xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"  x:Class="Prototype.AppPages.Prokirixis.Prokirixis1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:my="clr-namespace:Prototype.Controls"
+      xmlns:my1="clr-namespace:Prototype.DataSources"
+      mc:Ignorable="d"
+      Loaded="Page_Loaded" 
+      d:DesignHeight="700" d:DesignWidth="1000" Title="Προκηρύξεις" >
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF191937" Offset="0" />
+            <GradientStop Color="#FF253C74" Offset="1" />
+        </LinearGradientBrush>
+    </Page.Background>
+    <!--
+    <Page.Resources>
+        <my1:thetisDBDataSet x:Key="thetisDBDataSet" />
+        <CollectionViewSource x:Key="ProkirixiViewSource" Source="{Binding Path=ΠΡΟΚΗΡΥΞΗ, Source={StaticResource thetisDBDataSet}}" />
+    </Page.Resources>
+    -->
+    <Grid>
+        <my:NavPage />
+        <Border BorderBrush="White" BorderThickness="1" Width="147" HorizontalAlignment="Right" VerticalAlignment="Stretch" >
+            <StackPanel Name="Sidebar" Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <my:xClock HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Height="120"/>
+                <Label Content="Εργασίες" FontFamily="Segoe UI" FontSize="20" Foreground="White" HorizontalAlignment="Center" ></Label>
+                <Button Name="btnFirst" Width="140" Height="48" Cursor="Hand" Click="btnFirst_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/skip_backward.png"></Image>
+                        <Label Content="Πρώτη" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnPrevious" Width="140" Height="48" Cursor="Hand" Click="btnPrevious_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/back.png"></Image>
+                        <Label Content="Προηγούμενη" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnNext" Width="140" Height="48" Cursor="Hand" Click="btnNext_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/forward.png"></Image>
+                        <Label Content="Επόμενη" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnLast" Width="140" Height="48" Cursor="Hand" Click="btnLast_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/skip_forward.png"></Image>
+                        <Label Content="Τελευταία" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnDelete" Width="140" Height="48" Cursor="Hand" Click="btnDelete_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/delete.png"></Image>
+                        <Label Content="Διαγραφή" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnNew" Width="140" Height="48" Cursor="Hand" Click="btnNew_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/new.png"></Image>
+                        <Label Content="Νέα" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnRevert" Width="140" Height="48" Cursor="Hand" Click="btnRevert_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/undo.png"></Image>
+                        <Label Content="Αναίρεση" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnSave" Width="140" Height="48" Cursor="Hand" Click="btnSave_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/accept.png"></Image>
+                        <Label Content="Αποθήκευση" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Button Name="btnPrint" Width="140" Height="48" Cursor="Hand" Click="btnPrint_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width ="32" Height="32"  Source="/Prototype;component/Shell/Images/print.png"></Image>
+                        <Label Content="Εκτύπωση" FontFamily="Segoe UI" FontSize="14" Width="98"></Label>
+                    </StackPanel>
+                </Button>
+                <Label Content="Εστίαση" Margin="0,5,0,0" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="14" Foreground="White"/>
+                <telerik:RadSlider x:Name="zoomSlider" Margin ="0,10,0,0" Width="134" Value="1" Minimum=".5" Maximum="2" TickPlacement="Both" TickFrequency="0.25" HandlesVisibility="Visible" />
+            </StackPanel>
+        </Border>
+        <StackPanel Orientation="Vertical">
+            <TextBlock FontFamily="Segoe UI" FontSize="28" Foreground="White" FontWeight="Normal" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="50">
+                Σελίδα στοιχείων προκηρύξεων
+            </TextBlock>
+
+            <GroupBox Header="Στοιχεία Προκήρυξης" Height="313" Name="groupBox1" VerticalAlignment="Top" Foreground="White" IsEnabled="True" FontSize="14" HorizontalAlignment="Center" Width="679">
+                <GroupBox.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding ElementName=zoomSlider,Path=Value}" ScaleY="{Binding ElementName=zoomSlider, Path=Value}" />
+                </GroupBox.LayoutTransform>
+                <Grid Height="289">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="162*" />
+                        <ColumnDefinition Width="505*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Αρ. Προκήρυξης" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF69DED6" IsEnabled="True" Height="30" Width="120" />
+                    <Label Grid.Column="0" Grid.Row="1" Content="ΦΕΚ:" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF69DED6" Width="120" Height="30" />
+                    <Label Grid.Column="0" Grid.Row="2" Content="Ημ/νια Έναρξης" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Foreground="#FF69DED6" IsEnabled="True" Height="30" />
+                    <Label Grid.Column="0" Grid.Row="3" Content="Ημ/νια Λήξης" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Foreground="#FF69DED6" Height="30" IsEnabled="True" />
+                    <Label Grid.Column="0" Grid.Row="4" Content="Σχολικό Έτος" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF69DED6" Width="120" Height="30" IsEnabled="True" />
+                    <Label Grid.Column="0" Grid.Row="5" Content="Διοικητής" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Foreground="#FF69DED6" Height="30" />
+                    <TextBox Grid.Column="1" Grid.Row="0" Height="30" HorizontalAlignment="Left" Text="{Binding Path=ΠΡΟΚΗΡΥΞΗ_ΑΡ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="440" />
+                    <TextBox Grid.Column="1" Grid.Row="1" Height="30" Text="{Binding Path=ΦΕΚ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center"  HorizontalAlignment="Left" Width="440" />
+                    <DatePicker Grid.Column="1" Grid.Row="2" Height="30" HorizontalAlignment="Left" SelectedDate="{Binding Path=ΗΜΝΙΑ_ΕΝΑΡΞΗ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="115" />
+                    <DatePicker Grid.Column="1" Grid.Row="3" Height="30" HorizontalAlignment="Left" SelectedDate="{Binding Path=ΗΜΝΙΑ_ΛΗΞΗ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="115" IsEnabled="True" />
+                    <ComboBox Grid.Column="1" Grid.Row="4" Height="30" HorizontalAlignment="Left" 
+                              SelectedValuePath="ΣΧ_ΕΤΟΣ_ΚΩΔ" DisplayMemberPath="ΣΧ_ΕΤΟΣ" 
+                              SelectedValue="{Binding Path=ΣΧΟΛΙΚΟ_ΕΤΟΣ}" Name="cboSchoolYear" VerticalAlignment="Center" Width="115"/>
+                    <TextBox Grid.Column="1" Grid.Row="5" Height="30" HorizontalAlignment="Left" Text="{Binding Path=ΔΙΟΙΚΗΤΗΣ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="440" />
+               </Grid>
+        </GroupBox>
+            <Label Name ="lblSpacer" Content=" " Visibility="Hidden" Height="10" ></Label>
+            <GroupBox Header="Παράμετροι Μοριοποίησης" Height="313" Name="groupBox2" Width="679" IsEnabled="True" Foreground="White" FontSize="14">
+                <GroupBox.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding ElementName=zoomSlider, Path=Value}" ScaleY="{Binding ElementName=zoomSlider, Path=Value}" />
+                </GroupBox.LayoutTransform>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Προσμετρήσιμα έτη Διδακτικής, Επαγγελματικής" HorizontalAlignment="Left" VerticalAlignment="Center" Width="320" Foreground="#FF69DED6" Height="34" />
+                    <Label Grid.Row="1" Grid.Column="0" Content="Μόρια Μεταπτυχιακού Τίτλου Σπουδών" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF69DED6" IsEnabled="True" FontSize="14" Width="320" />
+                    <Label Grid.Row="2" Grid.Column="0" Content="Μόρια Διδακτορικού Τίτλου Σπουδών" HorizontalAlignment="Left" VerticalAlignment="Center" Width="320" Foreground="#FF69DED6" />
+                    <Label Grid.Row="3" Grid.Column="0" Content="Μόρια Παιδαγωγικού Τίτλου Σπουδών" HorizontalAlignment="Left" VerticalAlignment="Center" Width="320" IsEnabled="True" Foreground="#FF69DED6" />
+                    <Label Grid.Row="4" Grid.Column="0" Content="Προσμέτρηση Παιδαγωγικού" HorizontalAlignment="Left" VerticalAlignment="Center" Width="320" Foreground="#FF69DED6" />
+                    <Label Grid.Row="5" Grid.Column="0" Content="Κατάσταση Προκήρυξης" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Width="320" Foreground="LightCyan" IsEnabled="True" FontWeight="Bold" />
+
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="30" HorizontalAlignment="Left" Text="{Binding Path=ΠΡΟΣΜ_ΕΤΗ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="140" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="30" HorizontalAlignment="Left" Text="{Binding Path=ΜΕΤΑΠΤΥΧΙΑΚΟ_ΜΟΡΙΑ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="140" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Height="30" HorizontalAlignment="Left" Text="{Binding Path=ΔΙΔΑΚΤΟΡΙΚΟ_ΜΟΡΙΑ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="140" />
+                    <TextBox Grid.Row="3" Grid.Column="1" Height="30" HorizontalAlignment="Left" Text="{Binding Path=ΠΑΙΔΑΓΩΓΙΚΟ_ΜΟΡΙΑ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="140" />
+                    <CheckBox Grid.Row="4" Grid.Column="1" Content="" Height="15" HorizontalAlignment="Left" IsChecked="{Binding Path=ΠΑΙΔΑΓΩΓΙΚΟ_ΠΡΟΣΜ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=true}" VerticalAlignment="Center" Width="16" />
+                    <ComboBox Grid.Row="5" Grid.Column="1" Height="30" HorizontalAlignment="Left" 
+                          SelectedValuePath="STATUS_ID" SelectedValue="{Binding Path=ΚΑΤΑΣΤΑΣΗ}" DisplayMemberPath="STATUS"
+                          Name="cboProkirixiStatus" VerticalAlignment="Center" Width="140" IsEnabled="True" IsEditable="False" IsReadOnly="False">
+                    </ComboBox>
+                </Grid>
+        </GroupBox>
+           
+        </StackPanel>
+    </Grid>
+</Page>

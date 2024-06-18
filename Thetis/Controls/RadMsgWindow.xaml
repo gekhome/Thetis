@@ -1,0 +1,30 @@
+﻿<telerik:RadWindow x:Class="Thetis.Controls.RadMsgWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" MaxWidth="500" MaxHeight="400" ResizeMode="NoResize" IsRestricted="True" 
+             telerik:StyleManager.Theme="Windows8Touch" Header="Μήνυμα" WindowStartupLocation="CenterScreen"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" x:Name="DisplayMessage" Text="Message" FontFamily="Tahoma" FontSize="16"
+                   Width="480" Height="280" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"/>
+        <StackPanel Grid.Row="1" Height="60"
+                    Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <telerik:RadButton Click="OnButtonAcceptClicked" Margin="6,6,6,6"
+                    Content="OK" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100"
+                    telerik:RadWindow.ResponseButton="Accept" telerik:StyleManager.Theme="Windows8Touch"/>
+            <telerik:RadButton Click="OnButtonCancelClicked" Margin="6,6,6,6" Width="100"
+                    Content="Ακύρωση" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    telerik:RadWindow.ResponseButton="Cancel" telerik:StyleManager.Theme="Windows8Touch"/>
+        </StackPanel>
+
+
+    </Grid>
+</telerik:RadWindow>

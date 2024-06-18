@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Thetis.Controls.currentDate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Width="140" Height="100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.RowSpan="3" Source="/Thetis;component/Shell/Images/Calendar.png"/>
+        <Label Grid.Row="0" Name="LblDayOfWeek" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,12,0,38" Grid.RowSpan="2" />
+        <Label Grid.Row="1" Name="LblDayNumber" FontSize="24" FontWeight="Bold" Foreground="Red" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,10" />
+        <Label Grid.Row="1" Name="LblMonth" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,38,0,12" Grid.RowSpan="2" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,148 @@
+﻿<Page x:Class="Prototype.AppPages.Teachers.Teachers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:igWindows="http://infragistics.com/Windows"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+      xmlns:my="clr-namespace:Prototype.Controls"
+      xmlns:nav="clr-namespace:Prototype.Shell.Navigation"
+      xmlns:my1="clr-namespace:Prototype.DataSources"
+      xmlns:local="clr-namespace:Prototype.AppPages.Teachers"
+      mc:Ignorable="d"
+      d:DesignHeight="700" d:DesignWidth="1000"
+	Title="Εκπαιδευτικοί">
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF191937" Offset="0" />
+            <GradientStop Color="#FF253C74" Offset="1" />
+        </LinearGradientBrush>
+    </Page.Background>
+    <Grid>
+        <Grid.Resources>
+            <LinearGradientBrush x:Key="OfficeBlackFrame"
+                    EndPoint="0.491356224416577,0.974451988955925"
+                    StartPoint="0.777113682471078,-0.027352265088688">
+                <GradientStop Color="#FF7D7D7D" Offset="0.032501" />
+                <GradientStop Color="#FF4D4D4D" Offset="0.036112000000000033" />
+                <GradientStop Color="#FF656565" Offset="0.065002" />
+                <GradientStop Color="#FF454545" Offset="0.068613000000000035" />
+                <GradientStop Color="#FF353535" Offset="0.72841" />
+                <GradientStop Color="#FF050505" Offset="0.987361" />
+                <GradientStop Color="#FF9F9F9F" Offset="0.54500001668930054" />
+                <GradientStop Color="#FF454545" Offset="0.381" />
+                <GradientStop Color="#FF1C1C1C" Offset="0.66" />
+            </LinearGradientBrush>
+            <DataTemplate x:Key="TeacherDetailsTemplate">
+                <local:TeacherDetail />
+            </DataTemplate>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="128*"></RowDefinition>
+            <RowDefinition Height="570*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <my:NavPage Grid.Row="0"/>
+        <TextBlock FontFamily="Segoe UI" FontSize="28" Foreground="White" FontWeight="Normal" 
+                   TextAlignment="Center" Text="Σελίδα στοιχείων εκπαιδευτικών-αιτήσεων"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="50"/>
+        <my:xClock  Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="128" Height="128"/>
+        
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <Expander Foreground="White" BorderThickness="2" BorderBrush="White" HorizontalAlignment="Left" ExpandDirection="Right" Padding="4" IsExpanded="True">
+                <Expander.Header>
+                    <TextBlock Text="Εκπαιδευτικοί"
+                           FontSize="14"
+                           FontWeight="Bold">
+                  <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                  </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4,0,4">
+                        <Button ToolTip="Προσθήκη" Cursor="Hand" Margin="0,0,2,0" Name="btn_Add" Click="btnAdd_Click">
+                            <Image Source="/Prototype;component/Shell/Images/crud%20buttons/add.png" Width="26" Height="26"></Image>
+                        </Button>
+                        <Button ToolTip="Επεξεργασία" Cursor="Hand" Margin="0,0,2,0" Name="btn_Edit" Click="btnEdit_Click">
+                            <Image Source="/Prototype;component/Shell/Images/crud%20buttons/edit.png" Width="26" Height="26"></Image>
+                        </Button>
+                        <Button ToolTip="Διαγραφή" Cursor="Hand" Margin="0,0,2,0" Name="btn_Delete" Click="btnDelete_Click">
+                            <Image Source="/Prototype;component/Shell/Images/crud%20buttons/delete.png" Width="26" Height="26"></Image>
+                        </Button>
+                        <Button ToolTip="Αναίρεση" Cursor="Hand" Margin="0,0,2,0" Name="btn_Undo" Click="btnUndo_Click" >
+                            <Image Source="/Prototype;component/Shell/Images/crud%20buttons/undo.png" Width="26" Height="26"></Image>
+                        </Button>
+                        <Button ToolTip="Αποθήκευση" Cursor="Hand" Margin="0,0,2,0" Name="btn_Save" Click="btnSave_Click">
+                            <Image Source="/Prototype;component/Shell/Images/crud%20buttons/save.png" Width="26" Height="26"></Image>
+                        </Button>
+                   </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="2,2" HorizontalAlignment="Right" >
+                        <Label Content="Εύρεση..." Foreground="White"/>
+                        <TextBox MinWidth="280" Background="LightGray" Name="txtSearch" KeyDown="txtSearch_KeyDown" ToolTip="Εύρεση με Επώνυμο ή ΑΦΜ" FontSize="14"/>
+                        <Button Name="btnFilteOn" Click="btnFilterOn_Click"  Margin="4,0,0,0" Cursor="Hand" HorizontalAlignment="Right" ToolTip="Φίλτρο" >
+                            <Image Source="/Prototype;component/Shell/Images/filter_add.gif" Width="23" Height="23" />
+                        </Button>
+                        <Button Name="btnFilterOff" Click="btnFilterOff_Click"  Margin="2,0,0,0" Cursor="Hand" HorizontalAlignment="Right" ToolTip="Διαγραφή φίλτρου">
+                            <Image Source="/Prototype;component/Shell/Images/filter_remove.gif" Width="23" Height="23"/>
+                        </Button>
+                    </StackPanel>
+                        <telerik:RadGridView x:Name="teacherGrid" telerikControls:StyleManager.Theme="Office_Silver" Height="250" MinWidth="300"
+                                     CanUserInsertRows="True" CanUserDeleteRows="True" SelectionMode="Extended" IsReadOnly="False"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                     RowEditEnded="teacherGrid_RowEditEnded" ShowInsertRow="True"  
+                                     ToolTip="Για προσθήκη ή επεξεργασία της καρτέλας πατήστε το [+] δίπλα στο ΑΦΜ"  
+                                     AutoGenerateColumns="False" ShowGroupPanel="False" AlternationCount="2" SelectionUnit="FullRow"  
+                                     SelectionChanged="teacherGrid_SelectionChanged" AddingNewDataItem="teacherGrid_AddingNewDataItem" 
+                                     RowDetailsVisibilityMode="Collapsed" RowDetailsVisibilityChanged="teacherGrid_RowDetailsVisibilityChanged" 
+                                     RowDetailsTemplate="{StaticResource TeacherDetailsTemplate}"
+                                     ItemsSource ="{Binding TeacherCollection}">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewToggleRowDetailsColumn />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΑΦΜ}" Header="Α.Φ.Μ." UniqueName="ΑΦΜ" IsReadOnly="False" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΕΠΩΝΥΜΟ}" Header="Επώνυμο" UniqueName="ΕΠΩΝΥΜΟ" IsReadOnly="False" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΟΝΟΜΑ}" Header="Όνομα" UniqueName="ΟΝΟΜΑ" IsReadOnly="False"/>
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+                    <telerik:RadDataForm Name="teacherForm" AutoGenerateFields="True" Header="Εκπαιδευτικοί" 
+                                         ItemsSource="{Binding TeacherCollection}" Height="200" Margin="0,6,0,0" />
+                </StackPanel>
+            </Expander>
+            <Border BorderBrush="White"  BorderThickness="2" CornerRadius="4" Background="Transparent" MinHeight="570" Margin="4,0,4,0">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Name="cmdPanel"  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,4,4">
+                        <Button Content="Προσθήκη" Margin="0,10,5,0"    Name="btnAdd" Click="btnAdd_Click" Template="{StaticResource GlassButton}" Height="30" Width="76"></Button>
+                        <Button Content="Διαγραφή" Margin="0,10,5,0"    Name="btnDelete" Click="btnDelete_Click" Template="{StaticResource GlassButton}" Height="30" Width="76"></Button>
+                        <Button Content="Επεξεργασία" Margin="0,10,5,0" Name="btnEdit" Click="btnEdit_Click" Template="{StaticResource GlassButton}" Height="30" Width="76"></Button>
+                        <Button Content="Αναίρεση" Margin="0,10,5,0"    Name="btnUndo" Click="btnUndo_Click" Template="{StaticResource GlassButton}" Height="30" Width="76"></Button>
+                        <Button Content="Αποθήκευση" Margin="0,10,5,0"  Name="btnSave" Click="btnSave_Click" Template="{StaticResource GlassButton}" Height="30" Width="76"></Button>
+                    </StackPanel>
+                    <telerik:RadGridView x:Name="aitisiGrid" CanUserFreezeColumns="False" AutoGenerateColumns="False" ShowGroupPanel="False"
+                                     CanUserInsertRows="False" CanUserDeleteRows="True" MinHeight="480"  
+                                     IsReadOnly="True" AlternationCount="2" Height="200" ItemsSource="{Binding}" 
+                                     Margin="0,2,0,2" VerticalAlignment="Top" telerikControls:StyleManager.Theme="Office_Black" >
+
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewComboBoxColumn Name="cboprok" DataMemberBinding="{Binding ΠΡΟΚΗΡΥΞΗ}" Header="Προκήρυξη"
+                                                        UniqueName="cboprok" SelectedValueMemberPath="ΠΡΟΚΗΡΥΞΗ_ΚΩΔ" DisplayMemberPath="ΠΡΟΚΗΡΥΞΗ_ΑΡ"/>
+                        <telerik:GridViewComboBoxColumn Name="cboiek" DataMemberBinding="{Binding ΙΕΚ_ΑΙΤΗΣΗΣ}" Header="ΙΕΚ Αίτησης"
+                                                        UniqueName="cboiek" SelectedValueMemberPath="ΙΕΚ_ΚΩΔ" DisplayMemberPath="ΙΕΚ_ΟΝΟΜΑΣΙΑ"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ΠΡΩΤΟΚΟΛΛΟ}" Header="Αρ.Πρωτ." />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ΗΜΕΡΟΜΗΝΙΑ}" Header="Ημερομηνία" DataFormatString="{} {0:dd/MM/yyyy}"/>
+                        <telerik:GridViewComboBoxColumn Name="cboeidikotitita"  DataMemberBinding="{Binding ΕΙΔΙΚΟΤΗΤΑ}" Header="Κλάδος-Ειδικότητα"
+                                                        UniqueName="cboeidikotita" SelectedValueMemberPath="ΚΛΑΔΟΣ_ΚΩΔ" DisplayMemberPath="ΚΛΑΔΟΣ"/>
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding ΜΟΡΙΑ}" Header="Μόρια" />
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+                    <StackPanel Orientation="Horizontal" Margin="2,10,0,0">
+                        <TextBlock Text="Επιλεγμένος εκπαιδευτικός: " Foreground="White" FontSize="14"></TextBlock>
+                        <TextBlock Name ="txtTeacherInfo" Foreground="White" FontSize="14"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+        
+    </Grid>
+</Page>

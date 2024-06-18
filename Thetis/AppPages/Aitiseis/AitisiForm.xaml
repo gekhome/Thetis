@@ -1,0 +1,245 @@
+﻿<UserControl x:Class="Thetis.AppPages.Aitiseis.AitisiForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:c="clr-namespace:Thetis.Utilities"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" 
+             d:DesignHeight="290" d:DesignWidth="700">
+    <Grid>
+        <telerik:RadTabControl telerik:StyleManager.Theme="Windows8"  Height="268" VerticalAlignment="Top" HeaderBackground="#FF550D49">
+
+            <telerik:RadTabItem Header="Πρωτόκολλο">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="41*" />
+                        <RowDefinition Height="41*" />
+                        <RowDefinition Height="41*" />
+                        <RowDefinition Height="41*" />
+                        <RowDefinition Height="41*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="174" />
+                        <ColumnDefinition Width="524" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Προκήρυξη *:" FontSize="14" Grid.Row="0" Grid.Column="0" Height="26" VerticalAlignment="Top" Margin="6" Foreground="Black"/>
+                    <TextBlock Text="ΙΕΚ Αίτησης *:" Grid.Row="1" Grid.Column="0" FontSize="14" Height="26" VerticalAlignment="Top"  Margin="6" Foreground="Black"/>
+                    <TextBlock Text="Αρ.Πρωτοκόλλου *:" Grid.Row="2" Grid.Column="0" FontSize="14" Height="26" VerticalAlignment="Top"  Margin="6" Foreground="Black"/>
+                    <TextBlock Text="Ημερομηνία *:" Grid.Row="3" Grid.Column="0" FontSize="14" Height="26" VerticalAlignment="Top"  Margin="6" Foreground="Black"/>
+                    <TextBlock Text="Κωδ.Αίτησης:" Grid.Row="4" Grid.Column="0" FontSize="14" Height="26" VerticalAlignment="Top"  Margin="6" Foreground="Black"/>
+
+                    <telerik:RadComboBox Name="cboProkirixi"  Height="26" HorizontalAlignment="Left" Width="360"  Margin="6"
+                              Grid.Row="0" Grid.Column="1" FontSize="14" VerticalAlignment="Top"
+                              SelectedValue="{Binding ΠΡΟΚΗΡΥΞΗ}"  telerik:StyleManager.Theme="Windows8"
+                              SelectedValuePath="ΠΡΟΚΗΡΥΞΗ_ΚΩΔ" DisplayMemberPath="ΠΡΟΚΗΡΥΞΗ_ΑΡ" />
+                    <telerik:RadComboBox Name="cboiek"  Height="26" HorizontalAlignment="Left" Margin="6" Width="360" 
+                              Grid.Row="1" Grid.Column="1" FontSize="14" VerticalAlignment="Top" telerik:StyleManager.Theme="Windows8"
+                              SelectedValue="{Binding ΙΕΚ_ΑΙΤΗΣΗΣ}" 
+                              SelectedValuePath="ΙΕΚ_ΚΩΔ" DisplayMemberPath="ΙΕΚ_ΟΝΟΜΑΣΙΑ" />
+                    <TextBox Name="txtProtocol" Grid.Row="2" Grid.Column="1" Text="{Binding ΠΡΩΤΟΚΟΛΛΟ}"  Margin="6" Foreground="Black" 
+                             FontSize="14" Height="26" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <!--<telerik:RadDateTimePicker Name="dpAitisiDate" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                                           Margin="6" Height="34" Width="180" FontSize="14" telerik:StyleManager.Theme ="Windows8Touch"
+                                           InputMode="DatePicker" DateTimeWatermarkContent="Ημερομηνία Αίτησης..." 
+                    CurrentDateTimeText="{Binding Path=ΗΜΕΡΟΜΗΝΙΑ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=True}"
+                                         SelectedDate="{x:Static sys:DateTime.Now}" IsTooltipEnabled="False" />-->
+
+                    <telerik:RadDateTimePicker Name="dpAitisiDate" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                                           Margin="6" Height="34" Width="180" FontSize="14" telerik:StyleManager.Theme ="Windows8Touch"
+                                           InputMode="DatePicker" DateTimeWatermarkContent="Ημερομηνία Αίτησης..." 
+                                           CurrentDateTimeText="{Binding Path=ΗΜΕΡΟΜΗΝΙΑ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=True, StringFormat=dd/MM/yyyy}"
+                                           SelectedDate="{x:Static sys:DateTime.Now}" IsTooltipEnabled="False" 
+                                               />
+                                         
+
+                    <!--<telerik:RadDateTimePicker Name="dpAitisiDate" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                                           Margin="6" Height="34" Width="180" FontSize="14" telerik:StyleManager.Theme ="Windows8Touch"
+                                           InputMode="DatePicker" DateTimeWatermarkContent="Ημερομηνία Αίτησης..." 
+                    CurrentDateTimeText="{x:Static sys:DateTime.Now}"
+                    SelectedDate="{Binding Path=ΗΜΕΡΟΜΗΝΙΑ, Mode=TwoWay, ValidatesOnExceptions=true, NotifyOnValidationError=True}"/>-->
+
+
+                    <!--<DatePicker Name="txtAitisiDate" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                                Margin="6" Height="26" Width="180" FontSize="14" Text="{Binding ΗΜΕΡΟΜΗΝΙΑ}"
+                                c:DatePickerWatermark.Watermark="Ημερομηνία Αίτησης..." 
+                                SelectedDate="{x:Static sys:DateTime.Now}" />-->
+
+
+                    <TextBlock x:Name="txtAitisiID" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" 
+                                Margin="6" Height="26" Width="180" FontSize="14"  Text="{Binding ΚΩΔ_ΑΙΤΗΣΗ}"></TextBlock>
+
+                </Grid>
+
+
+            </telerik:RadTabItem>
+
+            <telerik:RadTabItem Header="Γενικά στοιχεία">
+                <Grid Height="240">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="44" />
+                        <RowDefinition Height="33" />
+                        <RowDefinition Height="96" />
+                        <RowDefinition Height="18" />
+                        <RowDefinition Height="72" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="53" />
+                        <ColumnDefinition Width="226" />
+                        <ColumnDefinition Width="95" />
+                        <ColumnDefinition Width="213" />
+                        <ColumnDefinition Width="111" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Left side of grid data -->
+                    <TextBlock Text="Α) Εκπλήρωση στρατ/κών υποχρεώσεων:" Foreground="Black" FontWeight="Normal" HorizontalAlignment="Left" Width="279" Margin="2,16,0,5" Grid.ColumnSpan="3" />
+                    <CheckBox  IsChecked="{Binding ΣΤΡΑΤΙΩΤΙΚΟ_ΕΚΠΛΗΡΩΣΗ}" Grid.Column="2" HorizontalAlignment="Left" Margin="2,16,0,5" Width="68" />
+                    <TextBlock Text="Β) Νόμιμη απαλλαγή από αυτές:" Foreground="Black" FontWeight="Normal" HorizontalAlignment="Left" Width="220" Margin="2,1,0,9" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <CheckBox IsChecked="{Binding ΣΤΡΑΤΙΩΤΙΚΟ_ΑΠΑΛΛΑΓΗ}" Grid.Column="2" HorizontalAlignment="Left" Margin="2,1,0,9" Width="68" Grid.Row="1" />
+
+                    <GroupBox BorderThickness="2"  Grid.Row="2" Grid.RowSpan="2" Foreground="Black" Header="Χρονική Ισχύς Βιβλιάριου Υγείας" Height="104" HorizontalAlignment="Left" Name="groupBox1" VerticalAlignment="Top" Width="347" Grid.ColumnSpan="3">
+                        <Grid Width="333">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65*" />
+                                <ColumnDefinition Width="205*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Από:" Foreground="Black" FontWeight="Normal" HorizontalAlignment="Left" Width="76" Margin="4,10,0,0" Height="23" />
+                            <TextBox Text="{Binding ΒΙΒΛΙΑΡΙΟ_ΥΓΕΙΑΣ_ΑΠΟ, StringFormat=dd/MM/yyyy}" Foreground="Black" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="246" Margin="1,11,0,1" />
+                            <TextBlock Text="Έως:" Foreground="Black" FontWeight="Normal" HorizontalAlignment="Left" Width="74" Margin="4,0,0,18" Height="23" Grid.Row="1" />
+                            <TextBox Text="{Binding ΒΙΒΛΙΑΡΙΟ_ΥΓΕΙΑΣ_ΕΩΣ, StringFormat=dd/MM/yyyy}" Foreground="Black" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="246" Grid.Row="1" VerticalAlignment="Top" />
+                        </Grid>
+                    </GroupBox>
+                    <TextBlock Text="Άνεργος και χωρίς προϋπηρεσία:" Foreground="Black" FontWeight="Normal" HorizontalAlignment="Left" Width="201" Margin="4,10,0,0" Height="23" Grid.Row="4" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+                    <CheckBox IsChecked="{Binding ΑΝΕΡΓΟΣ_12}" Grid.Column="1" Height="23" HorizontalAlignment="Left" Width="68" Grid.Row="4" Margin="160,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+
+                    <!-- Right side of grid data -->
+                    <TextBlock Grid.Column="3" Height="23" Foreground="Black" HorizontalAlignment="Left" FontWeight="Normal"  Margin="0,16,0,0" Text="Ηλικία:" VerticalAlignment="Top" Width="213" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Foreground="Black" FontWeight="Normal" Text="Αριθμός τέκνων:" VerticalAlignment="Top" Width="213" Grid.Column="3" Grid.Row="1" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Foreground="Black" FontWeight="Normal"  Margin="0,1,0,0" Text="Οικογενειακή κατάσταση:" VerticalAlignment="Top" Width="213" Grid.Column="3" Grid.Row="2" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Foreground="Black" FontWeight="Normal"  Margin="0,29,0,0" Text="Εργασία *:" VerticalAlignment="Top" Width="69" Grid.Column="3" Grid.Row="2" />
+
+                    <TextBlock Grid.Column="4" Height="23" Width="105" Foreground="Black" HorizontalAlignment="Left" Margin="0,16,0,0" Text="{Binding ΗΛΙΚΙΑ}" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Foreground="Black" Margin="0,1,0,0" Text="{Binding ΤΕΚΝΑ}" VerticalAlignment="Top" Width="105" Grid.Column="4" Grid.Row="1" />
+                    <telerik:RadComboBox Name="cboFamily"  Height="23" HorizontalAlignment="Left" Margin="0,1,0,0" telerik:StyleManager.Theme="Windows8" 
+                                         VerticalAlignment="Top" Width="105" Grid.Column="4" Grid.Row="2"
+                              SelectedValue="{Binding ΟΙΚ_ΚΑΤΑΣΤΑΣΗ}" SelectedValuePath="ΚΑΤΑΣΤΑΣΗ_ΚΩΔ" DisplayMemberPath="ΚΑΤΑΣΤΑΣΗ" />
+                    <telerik:RadComboBox Name="cboErgasia"  Height="23" HorizontalAlignment="Left" Margin="66,29,0,0"  telerik:StyleManager.Theme="Windows8"
+                                         VerticalAlignment="Top" Width="252" Grid.Column="3" Grid.Row="2"
+                              SelectedValue="{Binding ΕΡΓΑΣΙΑ}" SelectedValuePath="ΕΡΓΑΣΙΑ_ΚΩΔ" DisplayMemberPath="ΕΡΓΑΣΙΑ1" IsEnabled="True" Grid.ColumnSpan="2" />
+
+
+                </Grid>
+            </telerik:RadTabItem>
+
+            <telerik:RadTabItem Header="Στοιχεία σπουδών">
+                <Grid Height="240" Margin="2,6,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140" />
+                        <ColumnDefinition Width="174" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="229" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Right side of grid -->
+                    <Label Content="Κλάδος *:" FontWeight="Normal" Margin="0,0,0,15" Foreground="Black" />
+                    <Label Grid.Row="1" Content="Ειδικότητα *:"  FontWeight="Normal" Margin="0,0,0,15" Foreground="Black" />
+                    <Label Grid.Row="2" Content="Βαθμίδα Εκπαίδευσης *:"  FontWeight="Normal" Margin="0,0,0,15" Foreground="Black" />
+                    <Label Grid.Row="3" Content="Βαθμός Πτυχίου *:"  FontWeight="Normal" Margin="0,0,0,15" Foreground="Black" />
+                    <Label Grid.Row="4" Content="Ημ/νια κτήσης Πτυχίου:"  FontWeight="Normal" Margin="0,0,0,15" Foreground="Black" />
+                    <Label Grid.Row="5" Content="Τίτλος Πτυχίου *:"  FontWeight="Normal" Margin="0,0,0,15" Foreground="Black" />
+                    <telerik:RadComboBox Grid.Column="1"  Name="cboKlados" IsEnabled="True" SelectionChanged="cboKlados_SelectionChanged" 
+                              SelectedValue="{Binding ΚΛΑΔΟΣ}" SelectedValuePath="ΚΩΔ_ΚΛΑΔΟΣ" DisplayMemberPath="ΚΛΑΔΟΣ1"  telerik:StyleManager.Theme="Windows8"
+                              Margin="0,0,0,15" ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+                    <telerik:RadComboBox Grid.Row="1" Grid.Column="1"  Name="cboEidikotita" IsEnabled="True" telerik:StyleManager.Theme="Windows8"
+                              SelectedValue="{Binding ΕΙΔΙΚΟΤΗΤΑ}" SelectedValuePath="ΚΛΑΔΟΣ_ΚΩΔ" DisplayMemberPath="ΚΛΑΔΟΣ" 
+                              Margin="0,0,0,15" ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+                    <telerik:RadComboBox Grid.Row="2" Grid.Column="1"  Name="cboSpoudes" IsEnabled="True" telerik:StyleManager.Theme="Windows8"
+                              SelectedValue="{Binding ΣΠΟΥΔΕΣ}" SelectedValuePath="ΚΩΔ_ΣΠΟΥΔΕΣ" DisplayMemberPath="ΒΑΘΜΙΔΑ" 
+                              Margin="0,0,0,15" ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ΒΑΘΜΟΣ_ΠΤΥΧΙΟΥ}" Margin="0,4,0,15" Foreground="Black" />
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ΗΜΝΙΑ_ΠΤΥΧΙΟΥ, StringFormat=dd/MM/yyyy}" Margin="0,4,0,15" Foreground="Black" />
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ΤΙΤΛΟΣ_ΠΤΥΧΙΟΥ}" Margin="0,4,0,15" Foreground="Black" />
+                    <!-- Left side of grid -->
+                    <Label Grid.Row="0" Grid.Column="2" Content="Μεταπτυχιακό:" Foreground="Black" FontWeight="Normal" Margin="0,0,0,15" />
+                    <Label Grid.Row="1" Grid.Column="2" Content="Τίτλος Μεταπτ.:" Foreground="Black" FontWeight="Normal" Margin="0,0,0,15" />
+                    <Label Grid.Row="2" Grid.Column="2" Content="Διδακτορικό:" Foreground="Black" FontWeight="Normal" Margin="0,0,0,15" />
+                    <Label Grid.Row="3" Grid.Column="2" Content="Τίτλος Διδακτ.:" Foreground="Black" FontWeight="Normal" Margin="0,0,0,15" />
+                    <Label Grid.Row="4" Grid.Column="2" Content="Παιδαγωγικό:" Foreground="Black" FontWeight="Normal" Margin="0,0,0,15" />
+                    <Label Grid.Row="5" Grid.Column="2" Content="Τίτλος Παιδαγ.:" Foreground="Black" FontWeight="Normal" Margin="0,0,0,15" />
+                    <CheckBox Grid.Row="0" Grid.Column="3"  IsChecked="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ}" Margin="0,6,0,15" IsEnabled="True"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ_ΤΙΤΛΟΣ}" Margin="0,4,0,15" />
+                    <CheckBox Grid.Row="2" Grid.Column="3"  IsChecked="{Binding ΔΙΔΑΚΤΟΡΙΚΟ}" Margin="0,6,0,15" IsEnabled="True"/>
+                    <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding ΔΙΔΑΚΤΟΡΙΚΟ_ΤΙΤΛΟΣ}" Margin="0,4,0,15" />
+                    <CheckBox Grid.Row="4" Grid.Column="3"  IsChecked="{Binding ΠΑΙΔΑΓΩΓΙΚΟ}" Margin="0,6,0,15" IsEnabled="True"/>
+                    <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding ΠΑΙΔΑΓΩΓΙΚΟ_ΤΙΤΛΟΣ}" Margin="0,4,0,15" />
+                </Grid>
+            </telerik:RadTabItem>
+
+            <telerik:RadTabItem Header="Στοιχεία μοριοδότησης">
+                <Grid Height="240" Margin="2,6,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="144" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="290" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Left side of grid -->
+                    <Label Grid.Row="0" Grid.Column="0" Content="Μόρια Μεταπτυχιακού:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="1" Grid.Column="0" Content="Μόρια Διδακτορικού:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="2" Grid.Column="0" Content="Μόρια Παιδαγωγικού:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="3" Grid.Column="0" Content="Μόρια Διδακτικής:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="4" Grid.Column="0" Content="Μόρια Επαγγελματικής:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="5" Grid.Column="0" Content="Μόρια Ελ.Επαγγέλματος:" FontWeight="Normal" Foreground="Black" />
+
+                    <!-- Moria is always readonly as they are set by code -->
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ_ΜΟΡΙΑ}" Margin="0,4,0,15" Foreground="Black" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ΔΙΔΑΚΤΟΡΙΚΟ_ΜΟΡΙΑ}" Margin="0,4,0,15" Foreground="Black" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ΠΑΙΔΑΓΩΓΙΚΟ_ΜΟΡΙΑ}" Margin="0,4,0,15" Foreground="Black" />
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding ΔΙΔΑΚΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Margin="0,4,0,15" Foreground="Black" />
+                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding ΕΠΑΓΓΕΛΜΑΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Margin="0,4,0,15" Foreground="Black" />
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding ΕΛΕΥΘΕΡΟ_ΕΠΑΓΓΕΛΜΑ}" Margin="0,4,0,15" Foreground="Black" />
+                    <!-- Right side of grid -->
+                    <Label Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Content="Παρατηρήσεις:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="2" Grid.Column="2" Content="Αποκλεισμός:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="3" Grid.Column="2" Content="Αιτία αποκλεισμού:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="4" Grid.Column="2" Content="Έγινε ένσταση:" FontWeight="Normal" Foreground="Black" />
+                    <Label Grid.Row="5" Grid.Column="2" Content="Έγινε αποδεκτή:" FontWeight="Normal"  Foreground="Black"/>
+                    <ScrollViewer Margin="0,0,-31,0" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2">
+                    <TextBox Text="{Binding ΠΑΡΑΤΗΡΗΣΕΙΣ}" FontSize="10" TextWrapping="Wrap" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"  
+                                     Foreground="Black" AcceptsReturn="True" AcceptsTab="True" Margin="0,8,6,8"/>
+                    </ScrollViewer>
+                    <CheckBox Grid.Row="2" Grid.Column="3" IsChecked="{Binding ΑΠΟΚΛΕΙΣΜΟΣ}" Margin="0,6,0,15"/>
+                    <telerik:RadComboBox Grid.Row="3" Grid.Column="3" Margin="0,4,-18,14" IsEnabled="True" Name="cboApokleismos" telerik:StyleManager.Theme="Windows8" 
+                              SelectedValue="{Binding ΑΠΟΚΛΕΙΣΜΟΣ_ΑΙΤΙΑ}" SelectedValuePath="ΚΩΔ_ΑΠΟΚΛΕΙΣΜΟΣ" DisplayMemberPath="ΑΙΤΙΑ"
+                              ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής" HorizontalAlignment="Left" Width="319" />
+                    <CheckBox Grid.Row="4" Grid.Column="3" IsChecked="{Binding ΕΝΣΤΑΣΗ}" Margin="0,6,0,15" IsEnabled="True"/>
+                    <CheckBox Grid.Row="5" Grid.Column="3" IsChecked="{Binding ΑΠΟΔΕΚΤΗ}" Margin="0,6,0,15" IsEnabled="True"/>
+
+                </Grid>
+            </telerik:RadTabItem>
+
+        </telerik:RadTabControl>
+    </Grid>
+</UserControl>

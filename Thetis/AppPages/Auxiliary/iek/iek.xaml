@@ -1,0 +1,66 @@
+﻿<Page x:Class="Thetis.AppPages.Auxiliary.iek.iek"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:igDP="http://infragistics.com/DataPresenter"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+      xmlns:local="clr-namespace:Thetis.AppPages.Auxiliary.iek"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800" Background="Transparent"
+	  Title="Στοιχεία ΙΕΚ">
+
+    
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="iekInfoRowDetailsTemplate">
+                <local:iekInfoCard />
+            </DataTemplate>
+        </Grid.Resources>
+        <Border Background="Transparent" BorderBrush="DarkGray" BorderThickness="2" CornerRadius="0">
+            <StackPanel Orientation="Vertical">
+
+                <StackPanel Name="cmdPanel"  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <telerik:RadButton Content="Προσθήκη" Margin="0,10,5,0"    Name="btnAdd" Click="btnAdd_Click" telerik:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                    <telerik:RadButton Content="Διαγραφή" Margin="0,10,5,0"    Name="btnDelete" Click="btnDelete_Click" telerik:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                    <telerik:RadButton Content="Επεξεργασία" Margin="0,10,5,0" Name="btnEdit" Click="btnEdit_Click" telerik:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                    <telerik:RadButton Content="Αναίρεση" Margin="0,10,5,0"    Name="btnUndo" Click="btnUndo_Click" telerik:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                    <telerik:RadButton Content="Αποθήκευση" Margin="0,10,5,0"  Name="btnSave" Click="btnSave_Click" telerik:StyleManager.Theme="Windows8Touch"  Height="38" Width="110"></telerik:RadButton>
+                </StackPanel>
+                <TextBlock Text=" Στοιχεία ΙΕΚ" Padding="4" FontFamily="Segoe UI" FontSize="16" FontWeight="Normal" Height="31" />
+
+                <telerik:RadGridView x:Name="dataGrid" telerik:StyleManager.Theme="Windows8Touch" Height="460" ShowInsertRow="True" 
+                                     CanUserInsertRows="True" CanUserDeleteRows="True" SelectionMode="Extended" AddingNewDataItem="dataGrid_AddingNewDataItem"
+                                     RowEditEnded="dataGrid_RowEditEnded" AutoGenerateColumns="False" ShowGroupPanel="True" AlternationCount="2"
+                                     RowDetailsTemplate="{StaticResource iekInfoRowDetailsTemplate}" RowDetailsVisibilityMode="Collapsed"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                                     CellValidating="dataGrid_CellValidating" ShowColumnFooters="True" GroupPanelBackground="#550D49">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewToggleRowDetailsColumn />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΙΕΚ_ΟΝΟΜΑΣΙΑ}" Header="Επωνυμία" Name="ΙΕΚ_ΟΝΟΜΑΣΙΑ" IsGroupable="False">
+                        <telerik:GridViewDataColumn.AggregateFunctions>
+                            <telerik:CountFunction Caption="Πλήθος: " />
+                        </telerik:GridViewDataColumn.AggregateFunctions>
+                        </telerik:GridViewDataColumn>
+
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΙΕΚ_ΤΗΛ}" Header="Τηλέφωνο" UniqueName="ΙΕΚ_ΤΗΛ" IsGroupable="False" />
+                        <!--
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΙΕΚ_EMAIL}" Header="E-mail" UniqueName="ΙΕΚ_EMAIL" />
+                        -->
+                        <telerik:GridViewDynamicHyperlinkColumn DataMemberBinding="{Binding ΙΕΚ_EMAIL}" Header="E-mail"  
+                                                                NavigateUrlFormatString="mailto:{0}?subject=Το θέμα σας&amp;body=Το κείμενό σας"
+                                                                NavigateUrlMemberPaths="ΙΕΚ_EMAIL" IsGroupable="False" ToolTip="Αποστολή E-mail" /> 
+                                                                
+                        <telerik:GridViewComboBoxColumn Name="cbonomos"  DataMemberBinding="{Binding ΙΕΚ_ΝΟΜΟΣ}" Header="Νομός"
+                                            SelectedValueMemberPath="ΝΟΜΟΣ_ΚΩΔ" DisplayMemberPath="ΝΟΜΟΣ1"/>
+                        <telerik:GridViewComboBoxColumn Name="cboperiferiaki"  DataMemberBinding="{Binding ΙΕΚ_ΠΕΡΙΦΕΡΕΙΑΚΗ}" Header="Περιφερειακή Δ/νση"
+                                            SelectedValueMemberPath="ΠΕΡΙΦΕΡΕΙΑΚΗ_ΚΩΔ" DisplayMemberPath="ΠΕΡΙΦΕΡΕΙΑΚΗ1"/>
+                    </telerik:RadGridView.Columns>
+
+                </telerik:RadGridView>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

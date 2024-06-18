@@ -1,0 +1,18 @@
+﻿<Window x:Class="Thetis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thetis - Μητρώο Εκπαιδευτικών ΙΕΚ-ΟΑΕΔ" Height="700" Width="1000"
+        MinWidth="965" MinHeight="700"
+        WindowStyle="SingleBorderWindow" 
+        WindowState="Maximized" 
+        WindowStartupLocation="CenterScreen"
+        Icon="/Thetis;component/app_wpf.ico" xmlns:tr="http://schemas.telerik.com/wpf">
+    <Grid>
+        <Frame 
+            Background="{x:Null}" 
+			HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
+		    Margin="0,0,0,0" 
+		    Source="LoginPage.xaml" />
+    </Grid>
+</Window>

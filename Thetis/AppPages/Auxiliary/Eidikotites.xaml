@@ -1,0 +1,76 @@
+﻿<Page x:Class="Thetis.AppPages.Auxiliary.Eidikotites"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800" Background="Transparent"
+	Title="Ειδικότητες ΙΕΚ">
+
+    <Grid>
+        
+        <Border Background="Transparent" BorderBrush="DarkGray" BorderThickness="2" CornerRadius="0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Προκηρυσσόμενες ειδικοτήτες στα ΙΕΚ" Foreground="#550D49" Padding="4" FontSize="16" FontFamily="Segoe UI" FontWeight="Normal" Margin="0,0,0,20" Height="32" />
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <Border Background="#FF550D49" CornerRadius="0,0,0,0">
+                            <Label Content="Προκηρύξεις" FontSize="12" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                        </Border>
+                        <telerik:RadGridView x:Name="prokGrid" telerikControls:StyleManager.Theme="Windows8" Height="140" Width="200"  
+                                     CanUserInsertRows="False" CanUserDeleteRows="False" SelectionMode="Extended" IsReadOnly="True" 
+                                     AutoGenerateColumns="False" ShowGroupPanel="False" AlternationCount="2" SelectionChanged="prokGrid_SelectionChanged" >
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΠΡΟΚΗΡΥΞΗ_ΚΩΔ}" Header="Α/Α" Name="cboProkirixiId" IsVisible="False" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΠΡΟΚΗΡΥΞΗ_ΑΡ}" Header="Προκήρυξη" Name="cboProkirixiNum" />
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="40,0">
+                        <Border Background="#FF550D49" CornerRadius="0,0,0,0">
+                            <Label Content="Ι.Ε.Κ." FontSize="12" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                        </Border>
+                        <telerik:RadGridView x:Name="iekGrid" telerikControls:StyleManager.Theme="Windows8" Height="140" Width="200"   
+                                     CanUserInsertRows="False" CanUserDeleteRows="False" SelectionMode="Extended" IsReadOnly="True" 
+                                     AutoGenerateColumns="False" ShowGroupPanel="False" AlternationCount="2" SelectionChanged="iekGrid_SelectionChanged" >
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΙΕΚ_ΚΩΔ}" Header="Κωδ.ΙΕΚ" IsVisible="False" Name="cboiek" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΙΕΚ_ΟΝΟΜΑΣΙΑ}" Header="Επωνυμία" />
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <telerik:RadButton Content=" Μεταφορά " Margin="0,0,5,5" Padding="4" Width="80" IsEnabled="False" telerik:StyleManager.Theme="Windows8"/>
+                        <telerik:RadButton Content=" Διαγραφή " Margin="0,0,5,5" Padding="4" Width="80" Name="btnDelete" Click="btnDelete_Click" telerik:StyleManager.Theme="Windows8"/>
+                        <telerik:RadButton Content=" Προσθήκη " Margin="0,0,5,5" Padding="4" Width="80" Name="btnAdd" Click="btnAdd_Click"  telerik:StyleManager.Theme="Windows8"/>
+                        <telerik:RadButton Content=" Επεξεργασία " Margin="0,0,5,5" Padding="4" Width="80" Name="btnEdit" Click="btnEdit_Click" telerik:StyleManager.Theme="Windows8"/>
+                        <telerik:RadButton Content=" Αναίρεση " Margin="0,0,5,5" Padding="4" Width="80" Name="btnUndo" Click="btnUndo_Click" telerik:StyleManager.Theme="Windows8"/>
+                        <telerik:RadButton Content=" Αποθήκευση " Margin="0,0,5,5" Padding="4" Width="80" Name="btnSave" Click="btnSave_Click" telerik:StyleManager.Theme="Windows8"/>
+                    </StackPanel>
+
+                    <Border Background="#FF550D49" CornerRadius="0,0,0,0">
+                        <Label Content="Προκηρυσσόμενες Ειδικότητες Εκπαιδευτικών" FontSize="15" FontWeight="Normal" Foreground="White" HorizontalAlignment="Center"/>
+                    </Border>
+                    <!-- We need CRUD functions here -->
+
+                    <telerik:RadGridView x:Name="eidikotitesGrid" telerikControls:StyleManager.Theme="Windows8" Height="300"  
+                                     CanUserInsertRows="True" CanUserDeleteRows="False" SelectionMode="Extended" IsReadOnly="False" ShowInsertRow="True" 
+                                     AutoGenerateColumns="False" ShowGroupPanel="False" AlternationCount="2"
+                                     AddingNewDataItem="eidikotitesGrid_AddingNewDataItem" RowEditEnded="eidikotitesGrid_RowEditEnded"
+                                     BeginningEdit="eidikotitesGrid_BeginningEdit" Deleting="eidikotitesGrid_Deleting" >
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewComboBoxColumn Name="cboEidikotis"  DataMemberBinding="{Binding ΚΩΔ_ΕΙΔΙΚΟΤΗΤΑ}" Header="Κλάδος-Ειδικότητα"
+                                                            SelectedValueMemberPath="ΚΛΑΔΟΣ_ΚΩΔ" DisplayMemberPath="ΚΛΑΔΟΣ" MinWidth="600" 
+                                                            IsComboBoxEditable="False"/>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

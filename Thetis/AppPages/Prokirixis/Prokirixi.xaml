@@ -1,0 +1,90 @@
+﻿<Page x:Class="Thetis.AppPages.Prokirixis.Prokirixi"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:my="clr-namespace:Thetis.Controls"
+      xmlns:Telerik_Windows_Controls_Data_DataForm="clr-namespace:Telerik.Windows.Controls.Data.DataForm;assembly=Telerik.Windows.Controls.Data" 
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000" Initialized="Page_Initialized" Loaded="Page_Loaded" Title="Προκηρύξεις">
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="WhiteSmoke" Offset="0" />
+            <GradientStop Color="WhiteSmoke" Offset="1" />
+        </LinearGradientBrush>
+    </Page.Background>
+
+
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="FormTemplate">
+                <StackPanel>
+                    <telerik:DataFormDataField Label="Α/Α Προκήρυξης" DataMemberBinding="{Binding ΠΡΟΚΗΡΥΞΗ, Mode=TwoWay}" Visibility="Hidden" />
+                    <telerik:DataFormDataField Label="Προκήρυξη" DataMemberBinding="{Binding ΠΡΟΚΗΡΥΞΗ_ΑΡ, Mode=TwoWay}" />
+                    <telerik:DataFormDataField Label="Φ.Ε.Κ." DataMemberBinding="{Binding ΦΕΚ, Mode=TwoWay}" />
+                    <telerik:DataFormDateField Label="Ημ/νία Έναρξης" DataMemberBinding="{Binding ΗΜΝΙΑ_ΕΝΑΡΞΗ, Mode=TwoWay}" />
+                    <telerik:DataFormDateField Label="Ημ/νία Λήξης" DataMemberBinding="{Binding ΗΜΝΙΑ_ΛΗΞΗ, Mode=TwoWay}" />
+                    <telerik:DataFormComboBoxField Label="Σχολικό Έτος" DataMemberBinding="{Binding ΣΧΟΛΙΚΟ_ΕΤΟΣ}"
+                                                   DisplayMemberPath="ΣΧ_ΕΤΟΣ" SelectedValuePath="ΣΧ_ΕΤΟΣ_ΚΩΔ" 
+                                                   x:Name="cboSchoolYear" ItemsSource="{Binding GetSchoolYears}"/>
+                    <telerik:DataFormDataField Label="Φορέας" DataMemberBinding="{Binding ΦΟΡΕΑΣ, Mode=TwoWay}" />
+                    <telerik:DataFormDataField Label="Διοικητής" DataMemberBinding="{Binding ΔΙΟΙΚΗΤΗΣ, Mode=TwoWay}" />
+                    <GroupBox Header="Παράμετροι μοριοποίησης" Margin="0,10">
+                        <StackPanel>
+                            <telerik:DataFormDataField Label="Προσμετρήσιμα έτη" DataMemberBinding="{Binding ΠΡΟΣΜ_ΕΤΗ, Mode=TwoWay}" />
+                            <telerik:DataFormDataField Label="Μόρια Μεταπτυχιακού" DataMemberBinding="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ_ΜΟΡΙΑ, Mode=TwoWay}" />
+                            <telerik:DataFormDataField Label="Μόρια Διδακτορικού" DataMemberBinding="{Binding ΔΙΔΑΚΤΟΡΙΚΟ_ΜΟΡΙΑ, Mode=TwoWay}" />
+                            <telerik:DataFormDataField Label="Μόρια Παιδαγωγικού" DataMemberBinding="{Binding ΠΑΙΔΑΓΩΓΙΚΟ_ΜΟΡΙΑ, Mode=TwoWay}" />
+                            <telerik:DataFormCheckBoxField Label="Προσμέτρηση Παιδαγωγικού" DataMemberBinding="{Binding ΠΑΙΔΑΓΩΓΙΚΟ_ΠΡΟΣΜ, Mode=TwoWay}" />
+                            <telerik:DataFormComboBoxField Label="Καθεστώς Προκήρυξης" DataMemberBinding="{Binding ΚΑΤΑΣΤΑΣΗ, Mode=TwoWay}"
+                                                           DisplayMemberPath="STATUS" SelectedValuePath="STATUS_ID" 
+                                                           x:Name="cboProkirixiStatus"/>                        
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </DataTemplate>
+        </Grid.Resources>
+        
+        
+        <my:NavPage/>
+        <my:xClock HorizontalAlignment="Right" VerticalAlignment="Top" Width="104" Height="92" Background="#FF178CA6"/>
+        <StackPanel  Orientation="Vertical">
+            
+            <TextBlock Text ="Σελίδα στοιχείων προκηρύξεων" FontFamily="Segoe UI" FontSize="28" Foreground="#3C1235" FontWeight="Normal" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="50"/>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="740" Height="600" Margin="0,10">
+                <!--<Border.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding ElementName=zoomSlider,Path=Value}" ScaleY="{Binding ElementName=zoomSlider, Path=Value}" />
+                </Border.LayoutTransform>-->
+
+                <telerik:RadDataForm x:Name="DataFormProk" Header="Προκήρυξη" BeginningEdit="DataFormProk_BeginningEdit"
+                                     CancelButtonContent="Ακύρωση" CommitButtonContent="Αποθήκευση" 
+                                     ValidationSummaryVisibility="Visible" AutoGenerateFields="True"  
+                                     EditEnding="DataFormProk_EditEnding" DeletedItem="DataFormProk_DeletedItem" 
+                                     ValidatingItem="DataFormProk_ValidatingItem"
+                                     AutoGeneratingField="DataFormProk_AutoGeneratingField"
+                                     DeletingItem="DataFormProk_DeletingItem" 
+                                     AddingNewItem="DataFormProk_AddingNewItem" 
+                                     telerik:StyleManager.Theme ="Windows8Touch"  Margin="0,-2,0,0" />
+              
+            </Border>
+
+            <!--<Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="740" Margin="0,5">
+                <StackPanel Name="bottomPanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                    <Button Name="btnPrint" Width="140" Height="32" Cursor="Hand" Click="btnPrint_Click" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width ="20" Height="20" Source="/Thetis;component/Shell/Images/print.png"></Image>
+                            <Label Content="Εκτύπωση" FontFamily="Segoe UI" FontSize="12" Width="98"></Label>
+                        </StackPanel>
+                    </Button>
+                    <Label Content="Εστίαση" Margin="20,5,0,0" HorizontalContentAlignment="Center" FontFamily="Segoe UI" FontSize="14" Foreground="White"/>
+                    <telerik:RadSlider x:Name="zoomSlider" Margin ="0,10,0,0" Width="134" Value="1" Minimum=".5" Maximum="2" 
+                                   TickPlacement="Both" TickFrequency="0.25" HandlesVisibility="Visible" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>-->
+             
+        </StackPanel>
+        
+    </Grid>
+</Page>

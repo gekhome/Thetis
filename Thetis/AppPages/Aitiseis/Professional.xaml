@@ -1,0 +1,74 @@
+﻿<Page x:Class="Thetis.AppPages.Aitiseis.Professional"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+      xmlns:local="clr-namespace:Thetis.AppPages.Aitiseis"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+	Title="Επαγγελματική Προϋπηρεσία">
+
+    <Grid>
+
+        <Grid.Resources>
+            <local:EpagelmatikiErrorStyle x:Key="ColorConverter"></local:EpagelmatikiErrorStyle>
+        </Grid.Resources>
+
+
+        <Border Background="Transparent" BorderBrush="DarkGray" BorderThickness="2" CornerRadius="0">
+            <StackPanel Orientation="Vertical">
+
+                <StackPanel Name="cmdPanel"  Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <telerik:RadButton Content="Ανανέωση" Margin="0,10,5,0"    Name="btnRefresh" Click="btnRefresh_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                    <telerik:RadButton Content="Μεταφορά" Margin="0,10,5,0"    Name="btnTransfer" Click="btnTransfer_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                    <telerik:RadButton Content="Προσθήκη" Margin="0,10,5,0"    Name="btnAdd" Click="btnAdd_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                    <telerik:RadButton Content="Διαγραφή" Margin="0,10,5,0"    Name="btnDelete" Click="btnDelete_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                    <telerik:RadButton Content="Επεξεργασία" Margin="0,10,5,0" Name="btnEdit" Click="btnEdit_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                    <telerik:RadButton Content="Αναίρεση" Margin="0,10,5,0"    Name="btnUndo" Click="btnUndo_Click" telerik:StyleManager.Theme="Windows8"  Height="30" Width="76"></telerik:RadButton>
+                    <telerik:RadButton Content="Αποθήκευση" Margin="0,10,5,0"  Name="btnSave" Click="btnSave_Click"  telerik:StyleManager.Theme="Windows8" Height="30" Width="76"></telerik:RadButton>
+                </StackPanel>
+                <TextBlock Text=" Επαγγελματική Προϋπηρεσία" Padding="4" FontFamily="Segoe UI" FontSize="16" FontWeight="Normal" Height="31" />
+                
+                <telerik:RadGridView x:Name="dataGrid" telerik:StyleManager.Theme="Windows8" Height="400"
+                                     CanUserInsertRows="True" CanUserDeleteRows="True" SelectionMode="Extended" ShowColumnFooters="True" 
+                                     RowEditEnded="dataGrid_RowEditEnded" AutoGenerateColumns="False"  AddingNewDataItem="dataGrid_AddingNewDataItem" 
+                                     ShowGroupPanel="False" ShowInsertRow="True" CellValidating="dataGrid_CellValidating" 
+                                     RowValidating="dataGrid_RowValidating"  >
+                    <telerik:RadGridView.RowStyle>
+                        <Style TargetType="telerik:GridViewRow">
+                            <Setter Property="Background" Value="{Binding Converter={StaticResource ColorConverter}}"></Setter>
+                        </Style>
+                    </telerik:RadGridView.RowStyle>
+                    <telerik:RadGridView.Columns>
+                        
+                        <telerik:GridViewDataColumn Name="txtENARXI" DataMemberBinding="{Binding Path=ΕΝΑΡΞΗ, StringFormat=dd/MM/yyyy}" Header="Από">
+                        <telerik:GridViewDataColumn.AggregateFunctions>
+                            <telerik:CountFunction Caption="Πλήθος: " />
+                        </telerik:GridViewDataColumn.AggregateFunctions>
+                        </telerik:GridViewDataColumn>
+
+                        <telerik:GridViewDataColumn Name="txtLIXI" DataMemberBinding="{Binding Path=ΛΗΞΗ,StringFormat=dd/MM/yyyy}" Header="Έως" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΠΕΡΙΓΡΑΦΗ}" Header="Περιγραφή-Συνημμένο" />
+                        <telerik:GridViewDataColumn Name="txtDays" DataMemberBinding="{Binding Path=ΗΜΕΡΕΣ}" Header="Ημέρες(Μόρια)" />
+                        <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=ΣΦΑΛΜΑ_ΑΙΤΙΕΣ}" Header="Αιτίες σφάλματος" IsReadOnly="True" />
+                    </telerik:RadGridView.Columns>
+
+                </telerik:RadGridView>
+                
+                <StackPanel Orientation="Vertical" Background="#550d49" Height="180" Margin="0 20 0 0">
+                    <StackPanel Name="moriaPanel" Orientation="Horizontal">
+                        <TextBlock Text="Σύνολο μορίων από επαγγελματική προϋπηρεσία: " FontSize="14" FontWeight="Bold" Foreground="White"  />
+                        <TextBlock Name="txtMoria" Text="Μόρια" FontSize="14" Foreground="White" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Name="infoPanel" Margin="0 15 0 0" Orientation="Vertical">
+                        <TextBlock x:Name="txtTitle" Foreground="WhiteSmoke" FontWeight="Bold" Text="Πληροφορίες:" FontSize="14" Margin="0 0 0 10" />
+                        <TextBlock x:Name="txtInfo" Text="Test Message" Foreground="WhiteSmoke" FontSize="12"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

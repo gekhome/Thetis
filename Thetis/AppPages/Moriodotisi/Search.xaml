@@ -1,0 +1,75 @@
+﻿<Page x:Class="Thetis.AppPages.Moriodotisi.Search"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+      xmlns:my="clr-namespace:Thetis.Controls"
+      xmlns:nav="clr-namespace:Thetis.Shell.Navigation"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+	  Title="Αναζήτηση">
+
+    <Page.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="WhiteSmoke" Offset="0" />
+            <GradientStop Color="WhiteSmoke" Offset="1" />
+        </LinearGradientBrush>
+    </Page.Background>
+    
+    <Grid>
+        <StackPanel Name="mainPanel" Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Name="SelectionPanel" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Label Content="Επιλογή προκήρυξης" Margin="4" FontSize="14" Foreground="Black"/>
+                <telerik:RadComboBox x:Name="cboProkirixiSelection" telerik:StyleManager.Theme="Windows8" Margin="4" Width="180"
+                 SelectedValuePath="ΠΡΟΚΗΡΥΞΗ_ΚΩΔ" DisplayMemberPath="ΠΡΟΚΗΡΥΞΗ_ΑΡ"
+                 ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+                <Label Content="Επιλογή IEK" Margin="4" FontSize="14" Foreground="Black"/>
+                <telerik:RadComboBox x:Name="cboiekSelection" telerik:StyleManager.Theme="Windows8" Margin="4" Width="180"
+                 SelectedValuePath="ΙΕΚ_ΚΩΔ" DisplayMemberPath="ΙΕΚ_ΟΝΟΜΑΣΙΑ" 
+                 ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="Διαγραφή επιλογής"/>
+                <telerik:RadButton Name="btnView" Click="btnView_Click"  Content=" Προβολή " Margin="4" Padding="4" Width="80" 
+                 telerik:StyleManager.Theme="Windows8" Cursor="Hand" FontSize="12" />
+                <telerik:RadButton Name="btnRefresh" Click="btnRefresh_Click"  Content=" Ανανεώση " Margin="4" Padding="4" Width="80" 
+                 telerik:StyleManager.Theme="Windows8" Cursor="Hand" FontSize="12" />
+            </StackPanel>
+            <TextBlock Text="Επιλέξτε κριτήρια από τα σύμβολα φίλτρου των επικεφαλίδων" FontSize="12" Foreground="AntiqueWhite" Margin="4" />
+
+            <telerik:RadGridView x:Name="aitisiGrid" CanUserFreezeColumns="False" AutoGenerateColumns="False" ShowGroupPanel="True"
+                                     CanUserInsertRows="False" CanUserDeleteRows="False" ShowInsertRow="False"  
+                                     IsReadOnly="True" AlternationCount="2" Height="480" ShowColumnFooters="True" 
+                                     Margin="0,2,0,2" VerticalAlignment="Top" telerikControls:StyleManager.Theme="Windows8"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" GroupPanelBackground="#FF550D49">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΙΕΚ_ΟΝΟΜΑΣΙΑ}" Header="Επωνυμία" IsGroupable="False">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                    <telerik:CountFunction Caption="Πλήθος: " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                    </telerik:GridViewDataColumn>
+
+
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΠΡΩΤΟΚΟΛΛΟ}" Header="Αρ.Πρωτ." IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΗΜΕΡΟΜΗΝΙΑ, StringFormat=dd/MM/yyyy}" Header="Ημ/νια Αίτησης" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΠΩΝΥΜΟ}" Header="Επώνυμο" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΟΝΟΜΑ}" Header="Όνομα" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΠΑΤΡΩΝΥΜΟ}" Header="Πατρώνυμο" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΜΗΤΡΩΝΥΜΟ}" Header="Μητρώνυμο" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΑΦΜ}" Header="Α.Φ.Μ." IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΚΛΑΔΟΣ}" Header="Κλάδος-Ειδικότητα" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΒΑΘΜΟΣ_ΠΤΥΧΙΟΥ}" Header="Βαθ.Πτυχίου" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΜΕΤΑΠΤΥΧΙΑΚΟ}" Header="Μεταπτυχιακό" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΔΙΔΑΚΤΟΡΙΚΟ}" Header="Διδακτορικό" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΔΙΔΑΚΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Header="Μόρια Διδακτικής" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΠΑΓΓΕΛΜΑΤΙΚΗ_ΕΜΠΕΙΡΙΑ}" Header="Μόρια Επαγγελματικής" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΛΕΥΘΕΡΟ_ΕΠΑΓΓΕΛΜΑ}" Header="Μόρια Ελ.Επαγγέλματος" IsGroupable="False" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΕΡΓΑΣΙΑ}" Header="Εργασία" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΑΠΟΚΛΕΙΣΜΟΣ}" Header="Αποκλεισμός" IsGroupable="True" />
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding ΑΙΤΙΑ}" Header="Αιτία Αποκλεισμού" IsGroupable="True" />
+                </telerik:RadGridView.Columns>
+
+            </telerik:RadGridView>
+
+        </StackPanel>
+    </Grid>
+</Page>

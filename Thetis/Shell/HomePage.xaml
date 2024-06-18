@@ -1,0 +1,76 @@
+﻿<Page x:Class="Thetis.Shell.HomePage"
+      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/core"
+      xmlns:my="clr-namespace:Thetis.Controls"
+      xmlns:nav="clr-namespace:Thetis.Shell.Navigation"
+      xmlns:igWindows="http://infragistics.com/Windows"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      mc:Ignorable="d" Initialized="Page_Initialized" Loaded="Page_Loaded"
+	  Title="Αρχική σελίδα"
+      d:DesignHeight="800" d:DesignWidth="1152">
+
+
+    <Page.Background>
+        <ImageBrush ImageSource="/Shell/Images/walls/wall22.jpg"></ImageBrush>
+    </Page.Background>
+
+        <Grid x:Name="glassPaneHost">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="99*" />
+            <RowDefinition Height="120*" />
+            <RowDefinition Height="581*" />
+        </Grid.RowDefinitions>
+
+        
+        <StackPanel Name="headerPanel" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <!--<ColumnDefinition/>-->
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="/Thetis;component/Shell/Images/Other/oaed_logo.gif" Width="85" VerticalAlignment="Top"  >
+                </Image>
+                <TextBlock Grid.Column="1" Text="Thetis - Μητρώο εκπαιδευτικών Ι.Ε.Κ." Foreground="White" FontFamily="Segoe UI" FontSize="30" 
+                        HorizontalAlignment="Center" Width="740"  TextAlignment="Center" Margin="0,0,10,0">
+                </TextBlock>
+                
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Name="userPanel" Orientation="Horizontal" Margin ="0,10,6,0" Grid.Row="1" 
+                    HorizontalAlignment="Right" Height="110" Width="300">
+            <Grid Background="#4D0D63" Width="298">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="86*" />
+                        <ColumnDefinition Width="254*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.RowSpan="2" Source="/Thetis;component/Shell/Images/Metro/user_metro.png" 
+                           VerticalAlignment="Center" Height="70" Margin="6,12,0,12" />
+                    
+                    <TextBlock Name="txtLoginID" Text="LoginID" TextAlignment="Center" Background="Transparent"  
+                               VerticalAlignment="Center" Foreground ="White" Grid.Column="1" 
+                               HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe UI" />
+                
+                    <TextBlock Name="txtUserInfo" Text="UserInfo" TextAlignment="Center" 
+                           Background="Transparent" VerticalAlignment="Center" Foreground="White" 
+                           HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe UI" Grid.Row="1" 
+                           Grid.Column="1"/>
+            </Grid>
+        </StackPanel>
+        
+        <nav:Navigator  HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="2" Height="580" Margin="81,32,91,0" />
+        <my:TileTimeDate Width="300" Margin="0,0,6,0" HorizontalAlignment="Right" />
+        
+        </Grid>
+</Page>

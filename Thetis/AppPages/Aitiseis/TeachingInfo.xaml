@@ -1,0 +1,53 @@
+﻿<telerik:RadWindow  x:Class="Thetis.AppPages.Aitiseis.TeachingInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             telerik:StyleManager.Theme="Windows8Touch" Header="Ανάλυση υπολογισμού"
+             mc:Ignorable="d" ModalBackground="LightGray" 
+             d:DesignHeight="300" d:DesignWidth="444">
+    
+    <Grid Margin="0,10,0,0" HorizontalAlignment="Center" MinWidth="420">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!-- left side of panel (labels) -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Ημ/νια Έναρξης: " Foreground="Navy" FontSize="14"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Ημ/νια Λήξης: " Foreground="Navy" FontSize="14"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Ώρες/Εβδ.: " Foreground="Navy" FontSize="14"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Ώρες Συν.: " Foreground="Navy" FontSize="14"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Σύνολο Ωρών: " Foreground="Navy" FontSize="14"/>
+        <!-- left side of panel (fields) -->
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Code" Name="txtStartDate" FontSize="14"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Code" Name="txtEndDate" FontSize="14"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Code" Name="txtWeeklyHours" FontSize="14"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Code" Name="txtTotalHours" FontSize="14"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="Code" Name="txtCalculatedTotalHours" FontSize="14"/>
+
+        <!-- right side of panel (labels) -->
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Εργάσιμες μέρες: " Foreground="Navy" FontSize="14"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="Μέρες Χριστ.: " Foreground="Navy" FontSize="14"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="Μέρες Πάσχα: " Foreground="Navy" FontSize="14"/>
+        <TextBlock Grid.Row="3" Grid.Column="2" Text="Αργίες: " Foreground="Navy" FontSize="14"/>
+        <TextBlock Grid.Row="4" Grid.Column="2" Text="Καθαρές μέρες: " Foreground="Navy" FontSize="14"/>
+        <!-- right side of panel (fields) -->
+        <TextBlock Grid.Row="0" Grid.Column="3" Text="Code" Name="txtWorkingDays"  FontSize="14"/>
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="Code" Name="txtChristmasDays" FontSize="14"/>
+        <TextBlock Grid.Row="2" Grid.Column="3" Text="Code" Name="txtEasterDays" FontSize="14"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" Text="Code" Name="txtArgiesDays" FontSize="14"/>
+        <TextBlock Grid.Row="4" Grid.Column="3" Text="Code" Name="txtProperDays" FontSize="14"/>
+
+    </Grid>
+</telerik:RadWindow>
